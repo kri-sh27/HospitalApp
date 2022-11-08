@@ -1,0 +1,12 @@
+/* .example-spacer {
+    flex: 1 1 auto;
+  } */
+  
+  .navbar{
+    height: 50px;
+  }
+  .navbar-brand{
+    margin-left: 20px;
+  }
+
+  
