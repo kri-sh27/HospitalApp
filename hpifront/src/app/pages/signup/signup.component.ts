@@ -21,9 +21,9 @@ export class SignupComponent implements OnInit {
 
   public user = {
 
+    username:'',
     fullName: '',
     password: '',
-    // dob:Date='',
     dob:'',
     maritalstatus:'',
     gender:'',
@@ -34,69 +34,17 @@ export class SignupComponent implements OnInit {
   
   ngOnInit(): void {
   }
-
-
   onChange(e:any){
     this.gender=e.value;
     // console.log(this.gender);
   }
 
   formSubmit() {
-    // alert('submit')
-    // console.log(this.user);
-    // if (this.user.fullName == '' || this.user.fullName == null) {
-    //   // alert('User is requirsd');
-    //   Swal.fire('User Name Requird','info');
-    //   return;
-    // }
-    // else if(this.user.email == '' || this.user.email == null)
-    // {
-    //   // alert('Email is requird');
-    //   Swal.fire('Email is requird','info');
-    //   return;
-    // }
-    // else if(this.user.dob == '' || this.user.dob == null)
-    // {
-    //   // alert('Email is requird');
-    //   Swal.fire('date is requird','info');
-    //   return;
-    // }
-    // else if(this.user.maritalstatus == '' || this.user.maritalstatus == null)
-    // {
-    //   // alert('Email is requird');
-    //   Swal.fire('maritalstatus is requird','info');
-    //   return;
-    // }
-    // else if(this.user.gender == '' || this.user.gender == null)
-    // {
-    //   // alert('Email is requird');
-    //   Swal.fire('maritalstatus is requird','info');
-    //   return;
-    // }
-    // else if(this.user.address == '' || this.user.address == null)
-    // {
-    //   // alert('Email is requird');
-    //   Swal.fire('maritalstatus is requird','info');
-    //   return;
-    // }
-    // else if(this.user.password == '' || this.user.password == null)
-    // {
-    //   // alert('Email is requird');
-    //   Swal.fire('Password is requird','info');
-    //   return;
-    // }
-    // else if(this.user.phone == '' || this.user.phone == null)
-    // {
-    //   Swal.fire('Phone Number  is requird','info');
-    //   return;
-    // }
-  
-
     //addUser:userservices
     this.userService.addUser(this.user).subscribe(
       (data:any) => {
         //success
-        console.log(this.user.fullName);
+        console.log(this.user.username);
         console.log(data);
         // alert("sucess");
         Swal.fire('User Registered Successfully','User ID is '+ data.id,'success');

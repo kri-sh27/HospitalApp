@@ -11,8 +11,27 @@
             <h3 class="text-center">
               Register here
             </h3>
-            <!-- {{user | json}} -->
+            {{user | json}}
             <form #myForm="ngForm" (ngSubmit)="formSubmit()">
+
+              <div class="form-group">
+                <label for="name">Username</label>
+                <input  type="text" #username="ngModel" 
+                        minlength="3"
+                        maxlength="25"
+                        [(ngModel)]="user.username" 
+                        name="username" 
+                        class="form-control"
+                        id="username" 
+                        aria-describedby="emailHelp"   
+                        placeholder="Enter Username" required>
+              <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="username.invalid && (username.dirty || username.touched)">
+                  Username is a required field it shuold be as user(Number)
+                </div>
+               </div>
 
               <div class="form-group">
                 <label for="name">Full Name</label>
@@ -149,7 +168,7 @@
                       (change)="onChange($event)"
                       id="flexRadioDefault2"
                       />
-                      <label>male</label>
+                      <label >male</label>
                     </div>
                   </li>
 
@@ -165,7 +184,7 @@
                       (change)="onChange($event)"
                       id="flexRadioDefault2"
                       />
-                      <label>female</label>
+                      <label >female</label>
                     </div>
                   </li>
                   <li>
@@ -180,7 +199,7 @@
                       (change)="onChange($event)"
                       id="flexRadioDefault2"
                       />
-                      <label>other</label>
+                      <label >other</label>
                     </div>
                   </li>
                 </ul>
@@ -223,7 +242,8 @@
                 <input type="password" 
                         #password="ngModel"
                         [(ngModel)]="user.password" 
-                        name="password" class="form-control"
+                        name="password" 
+                        class="form-control"
                         id="exampleInputPassword1" 
                         placeholder="Password" required>
                   <div
@@ -286,15 +306,7 @@
                   
                   
                   
-                      <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Register</button>
-                        <!-- <button
-                            type="button"
-                            (click)="onReset(f)"
-                            class="btn btn-warning float-right"
-                          >
-                            Reset
-                          </button> -->
+                      -->
         <!--</div>
                     </form>
                   </div> -->

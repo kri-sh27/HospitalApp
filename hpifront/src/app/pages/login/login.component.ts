@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 
@@ -11,24 +12,75 @@ export class LoginComponent implements OnInit {
 
 
   loginData = {
-    email: '',
+    username: '',
     password: '',
   }
-  constructor() { }
+
+ 
+  constructor(private login:LoginService) { }
 
   ngOnInit(): void {
   }
 
-  formSubmit() {
-    console.log('Submit Button clicked');
 
-    if (this.loginData.email.trim() == '' || this.loginData.email == null) {
-      Swal.fire('Email is requird', 'error'); return;
+
+
+
+
+  formSubmit() {
+    console.log('Login Button clicked');
+
+    if (this.loginData.username.trim() == '' || this.loginData.username == null) {
+      Swal.fire('username is requird', 'error'); 
+      return;
     }
 
     else if (this.loginData.password.trim() == '' || this.loginData.password == null) {
-      Swal.fire('password is requird', 'error'); return;
+      Swal.fire('password is requird', 'error'); 
+      return;
     }
 
+ ///setting user in localstorage
+    this.login.setUser(this.loginData)
+    // console.log(this.login.getUser());
+   
+
+    //request to server to generate token
+
+    this.login.generateToken(this.loginData).subscribe(
+      (data:any)=>{
+        console.log("success");
+        console.log(data);
+        // console.log(this.loginData);
+
+        //login...
+        this.login.loginUser(data.token);
+        this.login.getCurrentUser().subscribe(
+          (user:any)=>{
+            this.login.setUser(user);
+            // console.log(user)
+
+            // redirect.. ADMIN=> admin dashboard
+            // Normal=>normal dashboard
+            if(this.login.getUserRole()=="ADMIN"){
+
+              window.location.href='/admin';
+
+            }else if(this.login.getUserRole()=="NORMAL"){
+              window.location.href='/user-dashboard';
+
+            }else{
+              this.login.logout();
+              
+            }
+          }
+        );},
+      (error:any)=>{
+        console.log("error");
+        console.log(error);
+        Swal.fire('Invalid Credentials !! try again','error');
+
+      }
+      );  
   }
 }
