@@ -77,33 +77,114 @@
 
               <div class="form-group">
                 <label for="exampleInputEmail1">Marital Status</label>
-                <input type="text" #maritalstatus="ngModel" 
+                <ul>
+                  <li>
+                  <div class="form-check">
+                    <input
+                    class="form-check-input"
+                    [(ngModel)]="user.maritalstatus"
+                    type="radio"
+                    name="maritalstatus"
+                    value="married"
+                    (change)="onChange($event)"
+                    id="flexRadioDefault2"
+                    />
+                    <label>Married</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <input
+                    class="form-check-input"
+                    #maritalstatus="ngModel"
+                    [(ngModel)]="user.maritalstatus"
+                    type="radio"
+                    name="maritalstatus"
+                    value="unmarried"
+                    (change)="onChange($event)"
+                    id="flexRadioDefault2"
+                    />
+                    <label>Unmarried</label>
+                  </div>
+                </li>
+              </ul>
+
+                <!-- <input type="text" #maritalstatus="ngModel" 
                         [(ngModel)]="user.maritalstatus" 
                         name="maritalstatus"
                         class="form-control" 
                         id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter maritalstatus" required>
+                        placeholder="Enter maritalstatus" required>-->
                   <div
                   class="alert alert-danger"
                   role="alert"
                   *ngIf="maritalstatus.invalid && (maritalstatus.dirty || maritalstatus.touched)">
                   Maretial is a required field
-                </div>
+                </div> 
               </div>
 
               <div class="form-group">
                 <label for="exampleInputEmail1"> Gender</label>
-                <input type="text" #Gender="ngModel" 
+                <!-- <input type="text" #Gender="ngModel" 
                         [(ngModel)]="user.gender" 
                         name="gender" class="form-control"
                         id="exampleInputEmail1" aria-describedby="emailHelp" 
-                        placeholder="Enter gender" required>
+                        placeholder="Enter gender" required>-->
                   <div
                   class="alert alert-danger"
                   role="alert"
                   *ngIf="Gender.invalid && (Gender.dirty || Gender.touched)">
                   Gender is a required field
-                </div> 
+                </div>  
+                <ul>
+                  <li>
+                    <div class="form-check">
+                      <input
+                      class="form-check-input"
+                      #Gender="ngModel" 
+                      [(ngModel)]="user.gender"
+                      type="radio"
+                      name="gender"
+                      value="male"
+                      (change)="onChange($event)"
+                      id="flexRadioDefault2"
+                      />
+                      <label>male</label>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="form-check">
+                      <input
+                      class="form-check-input"
+                      #Gender="ngModel" 
+                      [(ngModel)]="user.gender"
+                      type="radio"
+                      name="gender"
+                      value="female"
+                      (change)="onChange($event)"
+                      id="flexRadioDefault2"
+                      />
+                      <label>female</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                      class="form-check-input"
+                      [(ngModel)]="user.gender"
+                      #Gender="ngModel" 
+                      type="radio"
+                      name="gender"
+                      value="other"
+                      (change)="onChange($event)"
+                      id="flexRadioDefault2"
+                      />
+                      <label>other</label>
+                    </div>
+                  </li>
+                </ul>
+
               </div>
 
               <div class="form-group">

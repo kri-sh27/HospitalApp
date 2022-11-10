@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
   submitted = false;
+  gender: any;
+  // maritalstatus:any;
   
 
   
@@ -33,6 +35,11 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  onChange(e:any){
+    this.gender=e.value;
+    // console.log(this.gender);
+  }
 
   formSubmit() {
     // alert('submit')
@@ -103,4 +110,8 @@ export class SignupComponent implements OnInit {
       }
     )
   }
+
+
+
+
 }

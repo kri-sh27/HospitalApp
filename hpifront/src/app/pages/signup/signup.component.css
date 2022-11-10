@@ -5,4 +5,6 @@
 img {
     border-radius: 50%;
   }
- 
+  ul {
+    list-style-type: none;
+} 
