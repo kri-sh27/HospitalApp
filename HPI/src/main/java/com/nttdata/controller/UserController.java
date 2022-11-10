@@ -47,13 +47,13 @@ public class UserController {
 		return this.userService.createUser(user, roles);
 	}
 
-	// get Api Fot getting user by Gmail
+//	// get Api Fot getting user by Gmail
 	@GetMapping("/{username}")
 	public User getUser(@PathVariable("username") String username) {
 		return this.userService.getUser(username);
 	}
-
-	// delete the user by id
+//
+//	// delete the user by id
 	@DeleteMapping("/{userId}")
 	public void deleteUser(@PathVariable("userId") Long uerId) {
 		this.userService.deleteUser(uerId);

@@ -30,24 +30,25 @@ public class HpiappApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Starting code");
-//		
+////		
 //		User user = new User();
-//		
-//		user.setFullName("Krishnat Hogale");//Deepak
+////		
+//		user.setUsername("user1");
+//		user.setFullName("Krishnat R Hogale");//Deepak
 //		user.setEmail("krishnat@gmail.com");//deepak@gmail.com
 //		user.setPassword("abc");
-//		
+////		
 //		Role role1=new Role();
 //		role1.setRoleId(44L);//46
 //		role1.setRoleName("ADMIN");//Doctor
-//		
+////		
 //		Set<UserRole> userRoleSet=new HashSet<>();
 //		UserRole userRole=new UserRole();
 //		userRole.setRole(role1);
 //		userRole.setUser(user);
-//		
+////		
 //		userRoleSet.add(userRole);
-//		//
+////		//
 //				User user1= this.userService.createUser(user, userRoleSet);
 //				System.out.println(user1.getFullName());
 	}

@@ -18,7 +18,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 			AuthenticationException authException) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 //		String msg;
-		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Unauthorized:server");
+		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Unauthorized :Server");
 	}
 
 }

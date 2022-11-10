@@ -34,16 +34,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		// TODO Auto-generated method stub
 		final String requestTokenHeader = request.getHeader("Authorization");
 		 System.out.println(requestTokenHeader);
-	        String email=null;
+	        String username=null;
 	        String jwtToken=null;
 	        
-	        System.out.println(this.jwtUtil);
+//	        System.out.println(this.jwtUtil);
 	        
 	        if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
 	            jwtToken = requestTokenHeader.substring(7);
 //	            System.out.println(this.jwtUtil);
 	            try {
-	                email = this.jwtUtil.extractUsername(jwtToken);
+	                username = this.jwtUtil.extractUsername(jwtToken);
 	            } catch (ExpiredJwtException e) {
 	                e.printStackTrace();
 	                System.out.println("jwt token has expired");
@@ -59,10 +59,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 	        }
 	        
-	        System.out.println(email);
+//	        System.out.println(email);
+//	        System.out.println(SecurityContextHolder.getContext().getAuthentication());
 	        // validation
-	        if(email!=null && SecurityContextHolder.getContext().getAuthentication()==null){
-                final UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
+	        if(username!=null && SecurityContextHolder.getContext().getAuthentication()==null){
+                final UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
                 if(this.jwtUtil.validateToken(jwtToken,userDetails))
                 {
                     //token is valid

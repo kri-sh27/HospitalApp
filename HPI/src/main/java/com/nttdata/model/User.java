@@ -1,6 +1,8 @@
 package com.nttdata.model;
 
 import java.util.Collection;
+
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,15 +20,23 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usres")
-public class User implements UserDetails {
+//
+public class User implements UserDetails  {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private long id;
+	private String username;
+	
+	
+
 	private String password;
 
 	private String fullName;
@@ -41,9 +51,10 @@ public class User implements UserDetails {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", fullName=" + fullName + ", email=" + email + ", phone="
-				+ phone + ", dob=" + dob + ", maritalstatus=" + maritalstatus + ", gender=" + gender + ", address="
-				+ address + ", enabled=" + enabled + ", userRoles=" + userRoles + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", fullName=" + fullName
+				+ ", email=" + email + ", phone=" + phone + ", dob=" + dob + ", maritalstatus=" + maritalstatus
+				+ ", gender=" + gender + ", address=" + address + ", enabled=" + enabled + ", userRoles=" + userRoles
+				+ "]";
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
@@ -68,6 +79,14 @@ public class User implements UserDetails {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Date getDob() {
@@ -142,20 +161,13 @@ public class User implements UserDetails {
 		this.enabled = enabled;
 	}
 
-//	public User(long id, String password, String fullName, String email, String phone, boolean enabled) {
-//		super();
-//		this.id = id;
-//		this.password = password;
-//		this.fullName = fullName;
-//		this.email = email;
-//		this.phone = phone;
-//		this.enabled = enabled;
-//	}
 
-	public User(long id, String password, String fullName, String email, String phone, Date dob, String maritalstatus,
-			String gender, String address, boolean enabled, Set<UserRole> userRoles) {
+
+	public User(long id, String username, String password, String fullName, String email, String phone, Date dob,
+			String maritalstatus, String gender, String address, boolean enabled, Set<UserRole> userRoles) {
 		super();
 		this.id = id;
+		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
 		this.email = email;
@@ -167,25 +179,16 @@ public class User implements UserDetails {
 		this.enabled = enabled;
 		this.userRoles = userRoles;
 	}
-	
-	
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		
 		Set<Authority> set=new HashSet<>();
 		this.userRoles.forEach(userRoles ->{
 			set.add(new Authority(userRoles.getRole().getRoleName()));
 		});
 		
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return set;
 	}
 
 	@Override
@@ -205,5 +208,43 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	
+//
+//	@Override
+//	public Collection<? extends GrantedAuthority> getAuthorities() {
+//		// TODO Auto-generated method stub
+//		
+//		Set<Authority> set=new HashSet<>();
+//		this.userRoles.forEach(userRoles ->{
+//			set.add(new Authority(userRoles.getRole().getRoleName()));
+//		});
+//		
+//		return set;
+//	}
+//
+//	@Override
+//	public String getUsername() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public boolean isAccountNonExpired() {
+//		// TODO Auto-generated method stub
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isAccountNonLocked() {
+//		// TODO Auto-generated method stub
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isCredentialsNonExpired() {
+//		// TODO Auto-generated method stub
+//		return true;
+//	}
 
 }

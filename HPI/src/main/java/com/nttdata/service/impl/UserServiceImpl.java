@@ -25,8 +25,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User createUser(User user, Set<UserRole> userRoles) throws Exception {
 		// TODO Auto-generated method stub
+		
+		
+		User local = this.userRepository.findByUsername(user.getUsername());
 
-		User local = this.userRepository.findByEmail(user.getEmail());
+//		User local = this.userRepository.findByEmail(user.getEmail());
 		if (local != null) {
 			System.out.println("User is already there !!");
 			throw new Exception("User already present!!");
@@ -38,18 +41,25 @@ public class UserServiceImpl implements UserService {
 			}
 			user.getUserRoles().addAll(userRoles);
 			local = this.userRepository.save(user);
-
+//
 		}
 		return local;
 	}
 
-	// getting user by email
+	
+
+	
+
+		
+		
+//		
+//	// getting user by email
 	@Override
 	public User getUser(String username) {
 		// TODO Auto-generated method stub
-		return this.userRepository.findByEmail(username);
+		return this.userRepository.findByUsername(username);
 	}
-	// delete by user id
+//	// delete by user id
 	@Override
 	public void deleteUser(Long userId) {
 		// TODO Auto-generated method stub
