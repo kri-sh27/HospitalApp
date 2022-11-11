@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.nttdata.model.Role;
 import com.nttdata.model.User;
@@ -19,6 +20,9 @@ public class HpiappApplication implements CommandLineRunner {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
    
 	@Autowired
 	private RoleRepository roleRepository;
@@ -36,7 +40,7 @@ public class HpiappApplication implements CommandLineRunner {
 //		user.setUsername("user1");
 //		user.setFullName("Krishnat R Hogale");//Deepak
 //		user.setEmail("krishnat@gmail.com");//deepak@gmail.com
-//		user.setPassword("abc");
+//		user.setPassword(this.bCryptPasswordEncoder.encode("Krishnat@123"));
 ////		
 //		Role role1=new Role();
 //		role1.setRoleId(44L);//46
