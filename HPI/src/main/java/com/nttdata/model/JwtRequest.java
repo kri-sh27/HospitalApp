@@ -5,9 +5,6 @@ public class JwtRequest {
 	String password;
 	
 	
-	
-	
-	
 	public JwtRequest(String username, String password) {
 	
 		this.username = username;

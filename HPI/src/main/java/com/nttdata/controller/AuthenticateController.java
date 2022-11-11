@@ -41,46 +41,48 @@ public class AuthenticateController {
 	@Autowired
 	private JwtUtils jwtUtils;
 	
-	
-	//generate token
-	@PostMapping("/generate-token")
-	public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) {
+	//api name 
+	//parameter valiadtion missing done 
+	//exception handling done 
+	//generate token done
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 	    try
 	    {
 	        authenticate(jwtRequest.getUsername(),jwtRequest.getPassword());
 	    }
 	    catch (Exception e) {
-	        throw new RuntimeException(e);
-	    }
-//	    
-//	    System.out.println(jwtRequest.getEmail());
+	    	throw new Exception("Invalid username or password"+e.getMessage());
+//	        throw new RuntimeException(e);//
+	    }   
+	    // System.out.println(jwtRequest.getEmail());
 	    ////authenticate
 	    
+	    //exception handlling
+	    try {
 	    UserDetails userDetails=this.userDetailsService.loadUserByUsername(jwtRequest.getUsername());
 	    String token=this.jwtUtils.generateToken(userDetails);
-	    return ResponseEntity.ok(new JwtResponse(token));
+	    return ResponseEntity.ok(new JwtResponse(token));}
+	    catch(Exception e) {
+	    	throw new Exception("Invalid Username"+e.getMessage());
+	    }
 	}
-//	
-	
-	
-	
-//	
+
 	private void authenticate(String username,String password) throws Exception {
 		
 		try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
         }catch(DisabledException e)
         {
+     
             throw new Exception("USER DISABLED"+e.getMessage());
         }catch(BadCredentialsException e)
         {
-            throw new Exception("Invalid Credentials"+e.getMessage());
+            throw new Exception(" Invalid Credentials"+e.getMessage());
         }
 		
 	}
 
-	
-	
 	
 	
 //	//return the detilas of current user
