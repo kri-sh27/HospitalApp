@@ -20,7 +20,7 @@ export class LoginService {
   //generate token
 
   public generateToken(loginData:any):Observable<any>{
-    return this.http.post(`${baseUrl}/generate-token`,loginData)
+    return this.http.post(`${baseUrl}/authenticate`,loginData)
   }
 
   //login user=> setting token in local storage 
