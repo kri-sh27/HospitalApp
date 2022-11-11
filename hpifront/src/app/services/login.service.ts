@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import baseUrl from './healper';
 
 @Injectable({
@@ -11,11 +11,8 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
 
-// //Current User which is logged in
-// public getCurrentUser():Observable<any>{
-//   let userStr=localStorage.getItem("user"); 
-//   return 
-// }
+  //login status
+  public loginStatusSubject=new Subject<boolean>();
 
   //generate token
 
@@ -27,6 +24,7 @@ export class LoginService {
 
   public loginUser(token:any){
     localStorage.setItem('token',token);
+    this.loginStatusSubject.next(true);
     return true;
   }
 

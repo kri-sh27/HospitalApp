@@ -10,16 +10,16 @@
     type="button" style="margin-left: 950px;" class="btn btn-primary">Login</a>
 
     <a   
-     *ngIf="!login.isLoggedIn()"
+     *ngIf="!isLoggedIn"
     [routerLink]="'/signup'" type="button" style="margin-right: 20px;" class="btn btn-primary">Register</a>
 
     <a  
-    *ngIf="login.isLoggedIn()"
-     type="button" style="margin-left: 800px;" class="btn btn-primary">{{login.getUser().fullName}}</a>
+    *ngIf="isLoggedIn && user"
+     type="button" style="margin-left: 800px;" class="btn btn-primary">{{login.getUser().username}}</a>
 
     <a  
     (click)="logout()"
-    *ngIf="login.isLoggedIn()"
+    *ngIf="isLoggedIn"
      type="button" style="margin-right: 20px;" class="btn btn-primary">Logout</a>
 
   </nav>
