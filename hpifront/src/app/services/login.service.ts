@@ -10,18 +10,15 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-
   //login status
   public loginStatusSubject=new Subject<boolean>();
 
   //generate token
-
   public generateToken(loginData:any):Observable<any>{
     return this.http.post(`${baseUrl}/authenticate`,loginData)
   }
 
   //login user=> setting token in local storage 
-
   public loginUser(token:any){
     localStorage.setItem('token',token);
     this.loginStatusSubject.next(true);
@@ -37,6 +34,7 @@ export class LoginService {
       return true;
     }
   }
+  
   // Logout: remove token frm local storage
   public logout(){
     localStorage.removeItem('token');
@@ -57,7 +55,6 @@ export class LoginService {
 
   //getUser
   public getUser(){
-
     let userStr=localStorage.getItem("user"); 
     if(userStr!=null){
       return JSON.parse(userStr);
@@ -66,9 +63,7 @@ export class LoginService {
       this.logout();
       return null;
     }
-  
   }
-
 
   //getUsrRole
   public getUserRole(){
@@ -76,20 +71,8 @@ export class LoginService {
     return user.authorities[0].authority;
   }
 
-
   //current user:which isloggedin
   public getCurrentUser(){
-    
    return this.http.get(`${baseUrl}/current-user`);
   }
-    // public getCompleteUser(){
-    //   let usr=this.getUser();
-    //   let tokn=this.getToken();
-    //   return {
-    //     tokn:tokn,
-    //     email:usr.email,
-    //     password:usr.password
-    //   }
-      
-    // }
 }

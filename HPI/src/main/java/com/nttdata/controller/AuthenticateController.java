@@ -79,13 +79,10 @@ public class AuthenticateController {
             throw new Exception(" Invalid Credentials"+e.getMessage());
         }
 	}
-
-	
 	
 //	//return the detilas of current user
 	@GetMapping("/current-user")
 	public User getCurrentUser(Principal principal ) {
-		
 		return ((User)this.userDetailsService.loadUserByUsername(principal.getName()));
 	}
 }

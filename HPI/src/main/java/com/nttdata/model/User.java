@@ -3,8 +3,10 @@ package com.nttdata.model;
 import java.util.Collection;
 
 
+
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,8 +23,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.ToString.Exclude;
+
 
 @Entity
 @Table(name = "usres")
@@ -34,8 +38,6 @@ public class User implements UserDetails  {
 
 	private long id;
 	private String username;
-	
-	
 
 	private String password;
 
@@ -60,18 +62,14 @@ public class User implements UserDetails  {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
-
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
-
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
 
-	public User() {
-
-	}
+	public User() {}
 
 	public long getId() {
 		return id;
@@ -160,9 +158,6 @@ public class User implements UserDetails  {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-
-
-
 	public User(long id, String username, String password, String fullName, String email, String phone, Date dob,
 			String maritalstatus, String gender, String address, boolean enabled, Set<UserRole> userRoles) {
 		super();
@@ -210,6 +205,15 @@ public class User implements UserDetails  {
 	}
 	
 	
-
-
+//	//one patient have many medicine assigned
+//	@Exclude
+//	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+//	private List<MedicineAssigned> medicine;
+	
+//	//add medicine to the list ie store userid in medicine table
+//	public void medicineAssignied(MedicineAssigned medicine) {
+//		medicine.setUser(this);
+//		medicine.add(medicine);
+//	}
+	
 }

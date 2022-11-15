@@ -19,27 +19,24 @@ public class UserRole {
 	
 	@ManyToOne
 	private Role role;
+	
+	
 
 	public UserRole() {
 		
 	}
-
 	public Long getUserRoleId() {
 		return userRoleId;
 	}
-
 	public void setUserRoleId(Long userRoleId) {
 		this.userRoleId = userRoleId;
 	}
-
 	public User getUser() {
 		return user;
 	}
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 	public Role getRole() {
 		return role;
 	}
