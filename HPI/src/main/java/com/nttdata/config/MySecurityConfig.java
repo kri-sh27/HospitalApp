@@ -57,7 +57,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO Auto-generated method stub
 			auth.userDetailsService(this.userDetailsServiceImpl).passwordEncoder(passwordEncoder());
-
+			
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 		.cors()
 		.disable()
 		.authorizeRequests()
-		.antMatchers("/authenticate","/createuser").permitAll()
+		.antMatchers("/authenticate","/createuser","/api/v1/appointments","/createdoctor","/api/v1/appointments/Doctor","/api/v1/appointments/Doctor/{appointmentId}").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyRequest().authenticated()
 		.and()

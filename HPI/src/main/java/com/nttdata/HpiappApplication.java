@@ -1,6 +1,8 @@
 package com.nttdata;
 
 import java.util.HashSet;
+
+
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,40 +23,48 @@ public class HpiappApplication implements CommandLineRunner {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
    
 	@Autowired
 	private RoleRepository roleRepository;
 	public static void main(String[] args) {
+		
 		SpringApplication.run(HpiappApplication.class, args);
+		
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Starting code");
-////		
+		
+		
+		
 //		User user = new User();
-////		
+		
 //		user.setUsername("user1");
 //		user.setFullName("Krishnat R Hogale");//Deepak
 //		user.setEmail("krishnat@gmail.com");//deepak@gmail.com
 //		user.setPassword(this.bCryptPasswordEncoder.encode("Krishnat@123"));
 ////		
+		
 //		Role role1=new Role();
-//		role1.setRoleId(44L);//46
-//		role1.setRoleName("ADMIN");//Doctor
-////		
+//		role1.setRoleId(46L);//46
+//		role1.setRoleName("DOCTOR");//Doctor
+		
 //		Set<UserRole> userRoleSet=new HashSet<>();
 //		UserRole userRole=new UserRole();
 //		userRole.setRole(role1);
 //		userRole.setUser(user);
-////		
+
 //		userRoleSet.add(userRole);
-////		//
+
 //				User user1= this.userService.createUser(user, userRoleSet);
 //				System.out.println(user1.getFullName());
+		
 	}
 
 }
