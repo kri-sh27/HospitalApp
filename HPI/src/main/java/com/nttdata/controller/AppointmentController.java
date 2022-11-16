@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.nttdata.model.Appointment;
 import com.nttdata.model.Doctor;
+import com.nttdata.repository.AppointmentRepository;
 import com.nttdata.repository.DoctorRepository;
 import com.nttdata.service.AppointmentService;
 
@@ -22,6 +23,9 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentService appointmentService;
+    
+    @Autowired
+    private AppointmentRepository appointmentRepository;
     
     @Autowired
     private DoctorRepository doctorRepository;
@@ -83,4 +87,11 @@ public class AppointmentController {
     public List<Doctor> findById() {
         return doctorRepository.findAll();
     }
+    
+//    getting appointment by doctor id
+    @RequestMapping(path = "/getappointbyid/{username}", method = RequestMethod.GET)
+    public List<Appointment> findByDoctorId(@PathVariable String username ) {
+        return appointmentRepository.findBynameOfDoctor(username); 
+    }
+    
 }

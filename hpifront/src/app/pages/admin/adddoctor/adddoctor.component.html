@@ -1,0 +1,87 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row " style="margin-top: 20px;">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-body">
+    <h1>Doctor Registration</h1>
+    <!-- {{doctor|json}} -->
+    <form #myForm="ngForm" (ngSubmit)="formSubmit()">
+      <div class="form-group">
+        <label> Doctor Username</label>
+        <input type="text" class="form-control" #username="ngModel" [(ngModel)]="doctor.username" name="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input required type="password" class="form-control" #password="ngModel" [(ngModel)]="doctor.password" name="password">
+      </div>
+  
+      <div class="form-group">
+        <label>Doctor Name</label>
+        <input required type="text" class="form-control" #fullName="ngModel" [(ngModel)]="doctor.fullName" name="fullName">
+      </div>
+  
+      <div class="form-group">
+        <label>Phone No</label>
+        <input required type="tel" class="form-control" #phoneNo="ngModel" [(ngModel)]="doctor.phoneNo" name="phoneNo">
+      </div>
+      <div class="form-group">
+  
+        <label for="exampleInputEmail1">speciality</label>
+  
+        <ul>
+          <li>
+            <div class="form-check">
+              <input required class="form-check-input" [(ngModel)]="doctor.speciality" type="radio" name="speciality"
+                value="General Surgery" (change)="onChange($event)" id="flexRadioDefault2" />
+              <label>General Surgery</label>
+            </div>
+          </li>
+
+          <li>
+            <div class="form-check">
+              <input class="form-check-input" #maritalstatus="ngModel" [(ngModel)]="doctor.speciality" type="radio"
+                name="speciality" value="Child Neurology" (change)="onChange($event)" id="flexRadioDefault2" />
+              <label>Child Neurology</label>
+            </div>
+          </li>
+        </ul>
+        </div>
+        <!-- <td>speciality</td>
+         <td>
+           <select>
+             <option >Child Neurology</option>
+             <option >Neurology</option>
+             <option >General Surgery</option>
+             <option >Psychiatry</option>
+             <option >Orthopedic Surgery</option>
+           </select>
+         </td> -->
+  
+        <div class="mb-3">
+          <label>Available Timing</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="timePreference" value="Morning (9am-12pm)" #timing="ngModel"
+              [(ngModel)]="doctor.timing" name="timing">
+            <label class="form-check-label">Morning (9am-12pm)</label>
+          </div>
+  
+  
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="timePreference" value="Evening (5pm-8pm)" #timing="ngModel"
+              [(ngModel)]="doctor.timing" name="timing">
+            <label class="form-check-label">Evening (5pm-8pm)</label>
+          </div>
+  
+        </div>
+        <button [disabled]="!myForm.form.valid" class="btn btn-primary" type="submit">Register</button>
+  
+    </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  

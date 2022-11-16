@@ -20,6 +20,7 @@ public class Appointment {
     private Time appointmentStartTime;
     private Time appointmentEndTime;
     private String nameOfDoctor;
+//    private Long doctorId;
 //    private AppointmentStatus status = AppointmentStatus.Booked;
     private BigDecimal price;
 
@@ -35,6 +36,7 @@ public class Appointment {
         this.nameOfDoctor = nameOfDoctor;
 //        this.status = status;
         this.price = price;
+        
     }
 
     public Appointment(LocalDate appointmentDate, Time appointmentStartTime, Time appointmentEndTime, String nameOfDoctor, BigDecimal price) {

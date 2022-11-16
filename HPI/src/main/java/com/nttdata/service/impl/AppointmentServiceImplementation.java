@@ -2,6 +2,7 @@ package com.nttdata.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.nttdata.model.Appointment;
 import com.nttdata.repository.AppointmentRepository;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Component("appointmentService")
+@Service
 public class AppointmentServiceImplementation implements AppointmentService {
 
     @Autowired
