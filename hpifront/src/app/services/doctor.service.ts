@@ -17,4 +17,9 @@ export class DoctorService {
     console.log(doctor);
     return this.http.post(`${baseUrl}/createdoctor`, doctor);
   }
+
+  
+  public getdoctor(){
+    return this.http.get(`${baseUrl}/api/v1/appointments/Doctor`)
+  }
 }

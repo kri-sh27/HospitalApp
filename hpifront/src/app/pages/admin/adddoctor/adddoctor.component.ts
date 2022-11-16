@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-adddoctor',
@@ -24,6 +25,8 @@ export class AdddoctorComponent implements OnInit {
 
     this.ds.registerDoctor(this.doctor).subscribe((data)=>{
       console.log(data);
+      Swal.fire('Doctor Registered Successfully','success');
+
     });
   
   }

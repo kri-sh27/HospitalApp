@@ -23,6 +23,7 @@ import { AdddoctorComponent } from './pages/admin/adddoctor/adddoctor.component'
 import { DoctorlistComponent } from './pages/admin/doctorlist/doctorlist.component';
 import { DoctorDashboardComponent } from './pages/doctor/doctor-dashboard/doctor-dashboard.component';
 import { AppointmentlistComponent } from './pages/doctor/appointmentlist/appointmentlist.component';
+import { AppointmentComponent } from './pages/user/appointment/appointment.component';
 
 
 
@@ -42,6 +43,7 @@ import { AppointmentlistComponent } from './pages/doctor/appointmentlist/appoint
     DoctorlistComponent,
     DoctorDashboardComponent,
     AppointmentlistComponent,
+    AppointmentComponent,
     
   ],
   imports: [

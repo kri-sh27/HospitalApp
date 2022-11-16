@@ -8,6 +8,7 @@ import { DoctorDashboardComponent } from './pages/doctor/doctor-dashboard/doctor
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { AppointmentComponent } from './pages/user/appointment/appointment.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { DoctorGuard } from './services/doctor.guard';
@@ -65,7 +66,14 @@ const routes: Routes = [
     component:AppointmentlistComponent,
     pathMatch:'full',
     canActivate:[DoctorGuard],
+  },
+  {
+    path:'appointment',
+    component:AppointmentComponent,
+    pathMatch:'full',
+    // canActivate:[DoctorGuard],
   }
+
 ];
 
 @NgModule({
