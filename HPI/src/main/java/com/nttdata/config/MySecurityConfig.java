@@ -62,7 +62,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// TODO Auto-generated method stub
 		http
 		.csrf()
 		.disable()
@@ -78,7 +77,5 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-	
-	}
-	
+	}	
 }

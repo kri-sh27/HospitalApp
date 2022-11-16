@@ -45,7 +45,7 @@ public class HpiappApplication implements CommandLineRunner {
 		
 //		User user = new User();
 		
-//		user.setUsername("user1");
+//		user.setUsername("user1");doctor2
 //		user.setFullName("Krishnat R Hogale");//Deepak
 //		user.setEmail("krishnat@gmail.com");//deepak@gmail.com
 //		user.setPassword(this.bCryptPasswordEncoder.encode("Krishnat@123"));

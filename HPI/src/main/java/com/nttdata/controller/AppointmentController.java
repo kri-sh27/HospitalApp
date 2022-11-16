@@ -91,6 +91,9 @@ public class AppointmentController {
 //    getting appointment by doctor id
     @RequestMapping(path = "/getappointbyid/{username}", method = RequestMethod.GET)
     public List<Appointment> findByDoctorId(@PathVariable String username ) {
+    	
+    	System.out.println("username");
+    	System.out.println(username);
         return appointmentRepository.findBynameOfDoctor(username); 
     }
     
