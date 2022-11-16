@@ -29,12 +29,17 @@ list:any[]=[]
 
   getprice(){
     for (let i=0;i<this.list.length;i++){
-      if (this.list[i].name==this.appointment.nameOfDoctor)
+      if (this.list[i].fullName==this.appointment.nameOfDoctor)
       this.appointment.price=this.list[i].price.toString();
     }
   }
   getdoctor(){
-    this.ds.getdoctor().subscribe((data:any)=>this.list=data);
+    this.ds.getdoctor().subscribe((data:any)=>{
+      this.list=data
+      console.log(this.list);
+    }
+    );
+
   }
 
   formSubmit() {

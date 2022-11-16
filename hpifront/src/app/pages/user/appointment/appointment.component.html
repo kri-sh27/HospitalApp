@@ -91,8 +91,8 @@
                 <div class="form-group">
                   <label for="branch">Doctor name</label>
                   <select [(ngModel)]="appointment.nameOfDoctor" (change)="getprice()" id="branch" name="branch" ngModel class="form-control">
-                    <option *ngFor="let d of list" [value]="d.name">
-                      {{d.name}}
+                    <option *ngFor="let d of list" [value]="d.fullName">
+                      {{d.fullName}}
                   </option>
                   </select>
                 </div>
