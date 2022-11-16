@@ -19,6 +19,7 @@
 
     <a  
     (click)="logout()"
+    [routerLink]="'/login'"
     *ngIf="isLoggedIn"
      type="button" style="margin-right: 20px;" class="btn btn-primary">Logout</a>
 

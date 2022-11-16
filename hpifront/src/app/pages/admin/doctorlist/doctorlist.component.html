@@ -1,0 +1,38 @@
+<div class=" container-fluid page">
+    <div class=" page__box p-3 mt-2">Dashboard</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__ content-data postion-absolute text-center">
+            Registered Doctor Added Here!!
+
+        </div>
+         <div class="mt-5">
+    <table class="table table-bordered" >
+      <thead>
+        <tr>
+          <th>Doctor Username</th>
+          <th>Password</th>
+          <th>Doctor Name</th>
+          <th>Phone No</th>
+          <th>speciality</th>
+          <th>Timing</th>
+          <!-- <th>Edit</th>
+          <th>Delete</th> -->
+        </tr>
+      </thead>
+      <tbody class="tbody">
+      <tr *ngFor="let doctor of doctorlist">
+          <td>{{doctor.username}}</td>
+          <td>{{doctor.password}}</td>
+          <td>{{doctor.fullName}}</td>
+          <td>{{doctor.phoneNo }}</td>
+          <td>{{doctor.speciality}}</td>
+          <td>{{doctor.timing}}</td>
+          <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+              (click)="edit(doctor)">Edit</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteDoctor(doctor)">Delete</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+    </div>

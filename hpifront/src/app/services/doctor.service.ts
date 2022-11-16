@@ -10,7 +10,7 @@ export class DoctorService {
   constructor(private http:HttpClient) { }
 
   getAllDoctors(){
-    return this.http.get<any>(`${baseUrl}/get`)
+    return this.http.get<any>(`${baseUrl}/getalldoctors`)
   }
   
    registerDoctor(doctor: any) {

@@ -20,6 +20,10 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdddoctorComponent } from './pages/admin/adddoctor/adddoctor.component';
+import { DoctorlistComponent } from './pages/admin/doctorlist/doctorlist.component';
+import { DoctorDashboardComponent } from './pages/doctor/doctor-dashboard/doctor-dashboard.component';
+import { AppointmentlistComponent } from './pages/doctor/appointmentlist/appointmentlist.component';
+
 
 
 
@@ -34,7 +38,11 @@ import { AdddoctorComponent } from './pages/admin/adddoctor/adddoctor.component'
     HomeComponent,
     DashboardComponent,
     UserDashboardComponent,
-    AdddoctorComponent
+    AdddoctorComponent,
+    DoctorlistComponent,
+    DoctorDashboardComponent,
+    AppointmentlistComponent,
+    
   ],
   imports: [
     BrowserModule,

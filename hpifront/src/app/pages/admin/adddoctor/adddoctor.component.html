@@ -9,21 +9,45 @@
     <form #myForm="ngForm" (ngSubmit)="formSubmit()">
       <div class="form-group">
         <label> Doctor Username</label>
-        <input type="text" class="form-control" #username="ngModel" [(ngModel)]="doctor.username" name="username">
+        <input required type="text" class="form-control" #username="ngModel" [(ngModel)]="doctor.username" name="username">
+        <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="username.invalid && (username.dirty || username.touched)">
+                  Username is a required field it shuold be as doctor(Number)
+                </div>
       </div>
       <div class="form-group">
         <label>Password</label>
         <input required type="password" class="form-control" #password="ngModel" [(ngModel)]="doctor.password" name="password">
+        <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="password.invalid && (password.dirty || password.touched)">
+                  password is a required field it shuold be as user(Number)
+                </div>
       </div>
   
       <div class="form-group">
         <label>Doctor Name</label>
         <input required type="text" class="form-control" #fullName="ngModel" [(ngModel)]="doctor.fullName" name="fullName">
+        <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+                  FullName is required
+                </div>
       </div>
   
       <div class="form-group">
         <label>Phone No</label>
         <input required type="tel" class="form-control" #phoneNo="ngModel" [(ngModel)]="doctor.phoneNo" name="phoneNo">
+        <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="phoneNo.invalid && (phoneNo.dirty || phoneNo.touched)">
+                  Phone Number is required
+                </div>
       </div>
       <div class="form-group">
   
@@ -32,15 +56,16 @@
         <ul>
           <li>
             <div class="form-check">
-              <input required class="form-check-input" [(ngModel)]="doctor.speciality" type="radio" name="speciality"
+              <input required class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio" name="speciality"
                 value="General Surgery" (change)="onChange($event)" id="flexRadioDefault2" />
+                
               <label>General Surgery</label>
             </div>
           </li>
 
           <li>
             <div class="form-check">
-              <input class="form-check-input" #maritalstatus="ngModel" [(ngModel)]="doctor.speciality" type="radio"
+              <input class="form-check-input" #speciality="ngModel"  [(ngModel)]="doctor.speciality" type="radio"
                 name="speciality" value="Child Neurology" (change)="onChange($event)" id="flexRadioDefault2" />
               <label>Child Neurology</label>
             </div>
