@@ -1,0 +1,43 @@
+<!-- <p>appointmentlistforadmin works!</p> -->
+<div class=" container-fluid page">
+    <!-- <div class=" page__box p-3 mt-2">Dashboard</div> -->
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__ content-data postion-absolute text-center">
+            All Appointments
+
+        </div>
+         <div class="mt-5">
+    <table class="table table-bordered" >
+      <thead>
+        <tr>
+            <th>ID</th>
+          <th>Patient name</th>
+          <th>Doctor Name</th>
+          <th>Date</th>
+          <th>Start time</th>
+          <th>End Time</th>
+          <th>Prescription</th>
+          <th>Charges</th>
+          <!-- <th>Edit</th>
+          <th>Delete</th> -->
+        </tr>
+      </thead>
+      <tbody class="tbody">
+      <tr *ngFor="let al of appointmentlist">
+        <td>{{al.id}}</td>
+          <td>{{al.patientname}}</td>
+          <td>{{al.nameOfDoctor}}</td>
+          <td>{{al.appointmentDate}}</td>
+          <td>{{al.appointmentStartTime}}</td>
+          <td>{{al.appointmentEndTime}}</td>
+          <td>{{al.prescription}}</td>
+          <td>{{al.price}}</td>
+          <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+              (click)="edit(doctor)">Edit</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteDoctor(doctor)">Delete</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+    </div>

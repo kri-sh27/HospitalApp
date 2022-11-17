@@ -13,10 +13,35 @@
               </h3>
               <!-- {{appointment | json}}  -->
               <form #myForm="ngForm" (ngSubmit)="formSubmit()">
+
+                <div class="form-group">
+                  <label for="name">Patient Name</label>
+                  <input  type="text" #name="ngModel" 
+                          minlength="3"
+                          maxlength="25"
+                          [(ngModel)]="appointment.patientname" 
+                          name="fullName" 
+                          class="form-control"
+                          id="Username" 
+                          aria-describedby="emailHelp"   
+                          placeholder="Enter Name" required>
+                <div
+                    class="alert alert-danger"
+                    role="alert"
+                    *ngIf="name.invalid && (name.dirty || name.touched)">
+                    Name is a required field
+                  </div>
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    *ngIf="name.errors?.['minlength']||name.errors?.['maxlength']">
+                    minlength {{name.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
+                  </div>
+                </div>
   
                 <div class="form-group">
                   <label for="name">ID</label>
-                  <input  type="text" #name="ngModel" 
+                  <input  type="text" #id="ngModel" 
                           minlength="3"
                           maxlength="25"
                           [(ngModel)]="appointment.id" 
@@ -28,7 +53,7 @@
                 <div
                     class="alert alert-danger"
                     role="alert"
-                    *ngIf="name.invalid && (name.dirty || name.touched)">
+                    *ngIf="id.invalid && (id.dirty || id.touched)">
                     ID is a required field
                   </div>
                   <div
@@ -58,11 +83,11 @@
                 </div>
   
                 <div class="form-group">                  <label for="exampleInputEmail1">Start time</label>
-                  <input type="datetime" #maritalstatus="ngModel" 
+                  <input type="time" step="2" #maritalstatus="ngModel" 
                           [(ngModel)]="appointment.appointmentStartTime" 
                           name="maritalstatus"
                           class="form-control" 
-                          id="exampleInputEmail1" aria-describedby="emailHelp"
+                          id="appt-time" aria-describedby="emailHelp"
                           placeholder="Enter Start time" required>
                     <div
                     class="alert alert-danger"
@@ -74,7 +99,7 @@
   
                 <div class="form-group">
                   <label for="exampleInputEmail1"> End time</label>
-                  <input type="datetime" #Gender="ngModel"  
+                  <input type="time" step="2" #Gender="ngModel"  
                           [(ngModel)]="appointment.appointmentEndTime" 
                           name="gender" class="form-control"
                           id="exampleInputEmail1" aria-describedby="emailHelp" 

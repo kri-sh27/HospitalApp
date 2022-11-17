@@ -92,3 +92,5 @@ export class LoginComponent implements OnInit {
       );  
   }
 }
+//usr=this.getcurrentcur.usrnem
+//baseusrl/hfkfdjk/usr

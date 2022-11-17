@@ -13,6 +13,7 @@ export class AppointmentComponent implements OnInit {
   constructor(private appointmentservice:AppointmentService,private ds:DoctorService) { }
 
   public appointment={
+    "patientname":"",
     "id": '',
     "createdAt": '',
     "appointmentDate": '',

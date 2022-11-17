@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdddoctorComponent } from './pages/admin/adddoctor/adddoctor.component';
+import { AppointmentlistforadminComponent } from './pages/admin/appointmentlistforadmin/appointmentlistforadmin.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { DoctorlistComponent } from './pages/admin/doctorlist/doctorlist.component';
 import { AddprescriptionComponent } from './pages/doctor/addprescription/addprescription.component';
@@ -72,13 +73,19 @@ const routes: Routes = [
     path:'appointment',
     component:AppointmentComponent,
     pathMatch:'full',
-    // canActivate:[DoctorGuard],
+    canActivate:[NormalGuard],
   },
   {
     path:'addprescription',
     component:AddprescriptionComponent,
     pathMatch:'full',
     canActivate:[DoctorGuard]
+  },
+  {
+    path:'appointmentlistforadmin',
+    component:AppointmentlistforadminComponent,
+    pathMatch:'full',
+    canActivate:[AdminGuard]
   }
 
 ];
