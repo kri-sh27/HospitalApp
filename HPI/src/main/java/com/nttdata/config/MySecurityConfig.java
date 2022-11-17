@@ -68,7 +68,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 		.cors()
 		.disable()
 		.authorizeRequests()
-		.antMatchers("/authenticate","/createuser","/api/v1/appointments","/createdoctor","/api/v1/appointments/Doctor","/api/v1/appointments/{appointmentId}","/api/v1/appointments/getappointbyid/{id}").permitAll()
+		.antMatchers("/authenticate","/addDoctor","/createuser","/api/v1/appointments","/createdoctor","/api/v1/appointments/Doctor","/api/v1/appointments/{appointmentId}","/api/v1/appointments/getappointbyid/{id}","/api/v1/appointments/addprescriptionandfees","/api/v1/appointments/").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyRequest().authenticated()
 		.and()

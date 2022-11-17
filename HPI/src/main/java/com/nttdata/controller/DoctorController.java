@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nttdata.model.Doctor;
+import com.nttdata.model.Role;
 import com.nttdata.service.DoctorService;
 
 @RestController
@@ -31,12 +32,18 @@ public class DoctorController {
 //				System.out.println(doctor);
 //				Doctor d=new Doctor("deepak","1234","deepak bhai","123456","Psychiatry","9am-12pm");
 				
+//			Role role1=new Role();
+//			role1.setRoleId(46L);//46
+//			role1.setRoleName("DOCTOR");
+			
 				return doctorService.addDoctor(doctor);
-				
-				
-				
 			
 		}
+		
+		
+		
+		
+		
 		@RolesAllowed("ADMIN")
 		@GetMapping("/getalldoctors")
 		public List<Doctor> get() {

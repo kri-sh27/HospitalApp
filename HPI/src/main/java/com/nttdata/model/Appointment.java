@@ -10,20 +10,24 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
+
 @Data
 @Entity
 public class Appointment {
 
     private @Id @GeneratedValue Long id;
+    
+    private String patientname;
     private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
     private LocalDate appointmentDate;
     private Time appointmentStartTime;
     private Time appointmentEndTime;
     private String nameOfDoctor;
+    private String prescription;
+    private double charges;
 //    private Long doctorId;
 //    private AppointmentStatus status = AppointmentStatus.Booked;
     private BigDecimal price;
-
     public Appointment() {
 
     }

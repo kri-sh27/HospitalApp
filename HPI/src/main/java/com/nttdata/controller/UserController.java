@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nttdata.model.Role;
 import com.nttdata.model.User;
 import com.nttdata.model.UserRole;
+import com.nttdata.service.DoctorService;
 import com.nttdata.service.UserService;
 
 @RestController
@@ -27,6 +28,8 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	DoctorService doctorService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -53,6 +56,46 @@ public class UserController {
 
 		return this.userService.createUser(user, roles);
 	}
+	
+	
+	
+	@PostMapping("/addDoctor")
+	public User addDoctor(@RequestBody User user) throws Exception {
+
+		System.out.println(user);
+		
+		//encoding password with bcryptpassword encoder
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		Set<UserRole> roles = new HashSet<>();
+
+		Role role = new Role();
+		role.setRoleId(46L);
+		role.setRoleName("DOCTOR");
+
+		UserRole userRole = new UserRole();
+		userRole.setUser(user);
+		userRole.setRole(role);
+
+		roles.add(userRole);
+		
+		
+//			doctorService.addDoctor(user);
+		return this.userService.createUser(user, roles);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 //	// get Api Fot getting user by Gmail
 	@GetMapping("/{username}")

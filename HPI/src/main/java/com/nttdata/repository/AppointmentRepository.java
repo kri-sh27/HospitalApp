@@ -17,5 +17,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     
 //    @Query("select s from appointment s where s.name = :name")
     List<Appointment> findBynameOfDoctor( String name);
+    
+//    @Query("update appointmet set prescription= :prescription, charges= :charges where id= :id")
+//     void AddPrescriptionAndFees(@Param("prescription") String prescription, @Param("charges") double charges, @Param("id")Long id);
 
 }
