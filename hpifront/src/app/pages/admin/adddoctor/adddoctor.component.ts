@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,9 +9,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./adddoctor.component.css']
 })
 export class AdddoctorComponent implements OnInit {
-  public doctor={username:'',password:'',fullName:'',phoneNo:'',speciality:'',timing:''}
+  public doctor={username:'',password:'',email:'',dob:'',fullName:'',phoneNo:'',speciality:'',timing:''}
   speciality:any
-  constructor(private ds:DoctorService) { }
+  constructor(private us:UserService) { }
 
   ngOnInit(): void {
   } 
@@ -23,7 +24,7 @@ export class AdddoctorComponent implements OnInit {
   }
   formSubmit(){
 
-    this.ds.registerDoctor(this.doctor).subscribe((data)=>{
+    this.us.addDoctor(this.doctor).subscribe((data)=>{
       console.log(data);
       Swal.fire('Doctor Registered Successfully','success');
 

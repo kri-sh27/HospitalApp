@@ -14,4 +14,11 @@ export class UserService {
     console.log(user);
     return this.http.post(`${baseUrl}/createuser`,user)
   }
+  //add doctor
+  public addDoctor(user:any){
+    console.log(user);
+    return this.http.post(`${baseUrl}/addDoctor`,user)
+  }
+
+
 }
