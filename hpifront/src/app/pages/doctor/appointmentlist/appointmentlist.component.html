@@ -16,24 +16,30 @@
     <table class="table table-bordered" >
       <thead>
         <tr>
-          <th>AppointmentId</th>
-          <th>AppointmentDate</th>
-          <th>AppointmentSartTime</th>
-          <th>AppointmentEndTime</th>
-          <!-- <th>speciality</th> -->
-          <!-- <th>Timing</th> -->
+          <th>AppointmentID</th>
+          <th>PatientName</th>
+          <th>Date</th>
+          <th>SartTime</th>
+          <th>EndTime</th>
+          <th>prescription</th>
+          <th>Fees</th>
+        
           <!-- <th>Edit</th>
           <th>Delete</th> -->
+        </tr>
+        <tr input type="text">
         </tr>
       </thead>
       <tbody class="tbody">
       <tr *ngFor="let apt of appointlist">
-          <td>{{apt.id}}</td>
+        <td>{{apt.id}}</td>
+          <td>{{apt.patientname}}</td>
           <td>{{apt.appointmentDate }}</td>
           <td>{{apt.appointmentStartTime}}</td>
           <td>{{apt.appointmentEndTime}}</td>
-          <!-- <td>{{doctor.speciality}}</td> -->
-          <!-- <td>{{doctor.timing}}</td> -->
+          <td>{{apt.prescription}}</td> 
+           <td>{{apt.charges}}</td>
+           <td><button class="btn btn-primary" [routerLink]="'/addprescription'">Add prescription and fees</button></td>
           <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
               (click)="edit(doctor)">Edit</button></td>
           <td><button type="button" class="btn btn-danger" (click)="deleteDoctor(doctor)">Delete</button></td> -->

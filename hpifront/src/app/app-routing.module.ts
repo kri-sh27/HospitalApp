@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdddoctorComponent } from './pages/admin/adddoctor/adddoctor.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { DoctorlistComponent } from './pages/admin/doctorlist/doctorlist.component';
+import { AddprescriptionComponent } from './pages/doctor/addprescription/addprescription.component';
 import { AppointmentlistComponent } from './pages/doctor/appointmentlist/appointmentlist.component';
 import { DoctorDashboardComponent } from './pages/doctor/doctor-dashboard/doctor-dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -72,6 +73,12 @@ const routes: Routes = [
     component:AppointmentComponent,
     pathMatch:'full',
     // canActivate:[DoctorGuard],
+  },
+  {
+    path:'addprescription',
+    component:AddprescriptionComponent,
+    pathMatch:'full',
+    canActivate:[DoctorGuard]
   }
 
 ];

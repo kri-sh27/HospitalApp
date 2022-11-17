@@ -24,6 +24,7 @@ import { DoctorlistComponent } from './pages/admin/doctorlist/doctorlist.compone
 import { DoctorDashboardComponent } from './pages/doctor/doctor-dashboard/doctor-dashboard.component';
 import { AppointmentlistComponent } from './pages/doctor/appointmentlist/appointmentlist.component';
 import { AppointmentComponent } from './pages/user/appointment/appointment.component';
+import { AddprescriptionComponent } from './pages/doctor/addprescription/addprescription.component';
 
 
 
@@ -44,6 +45,7 @@ import { AppointmentComponent } from './pages/user/appointment/appointment.compo
     DoctorDashboardComponent,
     AppointmentlistComponent,
     AppointmentComponent,
+    AddprescriptionComponent,
     
   ],
   imports: [

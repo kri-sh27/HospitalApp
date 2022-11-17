@@ -1,0 +1,76 @@
+<!-- <p>addprescription works!</p> -->
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row " style="margin-top: 20px;">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container text-center">
+                            <img src="../../../assets/h.png" alt="" height="100px" width="100px">
+                        </div>
+
+                        <h3 class="text-center">
+                            Add prescription
+                        </h3>
+                        <!-- {{loginData|json}} -->
+                        <form #myForm="ngForm">
+                            <!-- <div class="form-group">
+                                <label for="exampleInputEmail1">Id</label>
+                                <input type="text"
+                                 class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" 
+                                    placeholder="Enter id" required>
+                             </div> -->
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">prescription</label>
+                                <input type="text"
+                                 class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" 
+                                    placeholder="prescription" required>
+                             </div>
+                             <div class="form-group">
+                                <label for="exampleInputEmail1">fees</label>
+                                <input type="text"
+                                 class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" 
+                                    placeholder="Enter fees" required>
+                             </div>
+
+                            
+                            <!-- <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" 
+                                #password="ngModel"
+                                [(ngModel)]="loginData.password"  
+                                name="password" class="form-control" 
+                                id="exampleInputPassword1"
+                                    placeholder="Password" required>
+
+                                    <div
+                                    class="alert alert-danger"
+                                    role="alert"
+                                    *ngIf="password.invalid && (password.dirty || password.touched)">
+                                    Password is a required field
+                                  </div>
+                            </div>--
+
+                            <div class="container text-center" style="margin-top: 10px;">
+                                <button [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Login</button>
+                                <button class="ml10" style="margin-left: 20px;" type="button"
+                                    class="btn btn-primary"  (click)="myForm.resetForm()">Reset</button>
+
+                            </div> -->
+                            <div class="container text-center" style="margin-top: 10px;">
+                                <button [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Add</button>
+                                <button class="ml10" style="margin-left: 20px;" type="button"
+                                    class="btn btn-primary"  (click)="myForm.resetForm()">Reset</button>
+</div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
