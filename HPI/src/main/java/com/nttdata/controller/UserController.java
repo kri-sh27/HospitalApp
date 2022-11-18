@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nttdata.model.Doctor;
 import com.nttdata.model.Role;
 import com.nttdata.model.User;
 import com.nttdata.model.UserRole;
@@ -53,7 +54,7 @@ public class UserController {
 		userRole.setRole(role);
 
 		roles.add(userRole);
-
+		//email verification
 		return this.userService.createUser(user, roles);
 	}
 	
@@ -61,9 +62,7 @@ public class UserController {
 	
 	@PostMapping("/addDoctor")
 	public User addDoctor(@RequestBody User user) throws Exception {
-
 		System.out.println(user);
-		
 		//encoding password with bcryptpassword encoder
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		Set<UserRole> roles = new HashSet<>();
@@ -78,8 +77,8 @@ public class UserController {
 
 		roles.add(userRole);
 		
+			doctorService.addDoctor(new Doctor(user.getUsername(),user.getPassword(),user.getFullName(),user.getPhone(),user.getSpeciality()) );
 		
-//			doctorService.addDoctor(user);
 		return this.userService.createUser(user, roles);
 	}
 	

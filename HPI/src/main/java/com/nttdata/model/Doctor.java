@@ -16,7 +16,9 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 @AllArgsConstructor
+@Data
 @Entity
 @Table(name="doctor")
 public class Doctor {
@@ -26,12 +28,10 @@ public class Doctor {
 	private String username;
 	private String password;
 	private String fullName;
-	private String phoneNo;
+	private String phone;
 	private String speciality;
-	private int price;
-	private String timing;
-	
-	
+//	private int price;
+//	private String timing;
 	
 	
 	public Doctor(){}
@@ -59,29 +59,22 @@ public class Doctor {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
+	
 	public String getSpeciality() {
 		return speciality;
 	}
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
 	}
-	public String getTiming() {
-		return timing;
+	public Doctor(String username2, String password2, String fullName2, String phone2, String speciality2) {
+		// TODO Auto-generated constructor stub
+		
+		this.username=username2;
+		this.password=password2;
+		this.fullName=fullName2;
+		this.phone=phone2;
+		this.speciality=speciality2;
 	}
-	public void setTiming(String timing) {
-		this.timing = timing;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
+	
 	
 }

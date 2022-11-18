@@ -97,10 +97,10 @@ public class AppointmentController {
         return appointmentRepository.findBynameOfDoctor(username); 
     }
     
-//    @RequestMapping(path="/addprescriptionandfees",method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
-//    public void AddPrescriptionAndFees(@RequestBody PrescriptionAndFees prescriptionandfees) {
-//         appointmentRepository.AddPrescriptionAndFees(prescriptionandfees.prescription, prescriptionandfees.charges, prescriptionandfees.id);
-//    }
+    @RequestMapping(path="/addprescriptionandfees",method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+    public void AddPrescriptionAndFees(@RequestBody PrescriptionAndFees prescriptionandfees) {
+         appointmentRepository.AddPrescriptionAndFees(prescriptionandfees.prescription, prescriptionandfees.charges, prescriptionandfees.id);
+    }
     
     
     

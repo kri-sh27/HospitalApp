@@ -7,5 +7,7 @@ import com.nttdata.model.Doctor;
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor,Long> {
 //	public Doctor findDoctorByUsername(String username);
+	
+
 
 }

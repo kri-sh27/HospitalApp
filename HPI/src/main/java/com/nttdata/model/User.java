@@ -25,9 +25,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
 import lombok.ToString.Exclude;
 
-
+@Data
 @Entity
 @Table(name = "usres")
 //
@@ -48,6 +49,7 @@ public class User implements UserDetails  {
 	private String maritalstatus;
 	private String gender;
 	private String address;
+	private String speciality;
 
 	private boolean enabled = true;
 

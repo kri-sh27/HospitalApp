@@ -35,7 +35,6 @@ public class DoctorController {
 //			Role role1=new Role();
 //			role1.setRoleId(46L);//46
 //			role1.setRoleName("DOCTOR");
-			
 				return doctorService.addDoctor(doctor);
 			
 		}
