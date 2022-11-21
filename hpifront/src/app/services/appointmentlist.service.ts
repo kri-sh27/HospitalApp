@@ -8,13 +8,13 @@ import { LoginService } from './login.service';
 })
 export class AppointmentlistService {
 
-  constructor(private http:HttpClient, private login:LoginService ) { }
-    username=this.login.getUser().fullName;
+  constructor(private http: HttpClient, private login: LoginService) { }
+  username = this.login.getUser().fullName;
 
-  getAllAppointments(){
+  getAllAppointments() {
     console.log(this.username);
-    return this.http.get<any>(`${baseUrl}/api/v1/appointments/getappointbyid/`+ this.username, {
-     observe: 'response'
+    return this.http.get<any>(`${baseUrl}/api/v1/appointments/getappointbyid/` + this.username, {
+      observe: 'response'
     })
   }
 }
