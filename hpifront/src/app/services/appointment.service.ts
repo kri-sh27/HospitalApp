@@ -12,4 +12,8 @@ export class AppointmentService {
     console.log(appointment);
     return this.http.post(`${baseUrl}/api/v1/appointments`,appointment)
   }
+  public getStarttime(appointment:any){
+    console.log(appointment);
+    return this.http.post(`${baseUrl}/api/v1/appointments/GetStartdate`,appointment)
+  }
 }

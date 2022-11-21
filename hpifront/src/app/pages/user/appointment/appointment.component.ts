@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,29 +11,87 @@ import Swal from 'sweetalert2';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor(private appointmentservice:AppointmentService,private ds:DoctorService) { }
+  constructor(private appointmentservice:AppointmentService,private ds:DoctorService, private login:LoginService) { }
 
   public appointment={
-    "patientname":"",
-    "id": '',
+    "patientname":this.login.getUser().fullName,
+    "id": this.login.getUser().id,
     "createdAt": '',
     "appointmentDate": '',
-    "appointmentStartTime": '',
-    "appointmentEndTime": '',
+    "appointmentStartTime": '00:00:00',
+    "appointmentEndTime": '00:00:00',
     "nameOfDoctor": '',
     "status": '',
-    "price": ''
+    "speciality": '',
+    "healthIssue":''
 }
+starttime1:any[]=["9:00:00","9:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00",
+  "13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00","17:30:00",
+  "18:00:00","18:30:00"];
+
+endtime:any[]=["9:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00",
+  "13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00","17:30:00",
+  "18:00:00","18:30:00","19:00:00"];
+starttime:any[]=[]
 list:any[]=[]
   ngOnInit(): void {
     this.getdoctor();
   }
+  list1:any[]=[]
 
-  getprice(){
+  getspeciality(){
     for (let i=0;i<this.list.length;i++){
       if (this.list[i].fullName==this.appointment.nameOfDoctor)
-      this.appointment.price=this.list[i].price.toString();
+      this.appointment.speciality=this.list[i].speciality.toString();
     }
+  }
+  getStarttime(){
+    // this.appointment.appointmentDate.split("-").reverse().join("-");
+    console.log(this.appointment)
+    this.appointmentservice.getStarttime(this.appointment).subscribe(
+      (data:any) => {
+        this.list1=data
+        console.log(this.list1);
+        this.filtertime();
+        //success
+        // console.log(this.appointment.id);
+        // console.log(data);
+        // alert("sucess");
+        // Swal.fire('Booked Successfully','success');
+      }
+    )
+    
+  }
+  filtertime(){
+    let isFound=false;
+    for(let i=0;i<this.starttime1.length;i++){
+      for(let j=0;j<this.list1.length;j++){
+        if(this.starttime1[i]== this.list1[j]){
+         isFound=true;
+        }
+        
+      }
+      if (isFound==false)
+      {
+        this.starttime.unshift(this.starttime1[i])
+
+      }
+      isFound=false;
+}
+console.log(this.starttime)
+  }
+  getendtime(){
+    for (let i=0;i<this.starttime.length;i++){
+      if (this.starttime[i]==this.appointment.appointmentStartTime){
+      console.log(this.appointment.appointmentStartTime)
+      let j=this.endtime.indexOf(this.starttime[i])
+      this.appointment.appointmentEndTime=this.endtime[j+1];
+      }
+      // this.appointment.appointmentEndTime=this.endtime[i];
+    }
+    console.log(this.appointment.appointmentStartTime)
+    console.log(this.appointment.appointmentEndTime)
+    console.log("method called")
   }
   getdoctor(){
     this.ds.getdoctor().subscribe((data:any)=>{
@@ -63,6 +122,7 @@ list:any[]=[]
         //success
         console.log(this.appointment.id);
         console.log(data);
+        console.log(this.appointment)
         // alert("sucess");
         Swal.fire('Booked Successfully','success');
       },
