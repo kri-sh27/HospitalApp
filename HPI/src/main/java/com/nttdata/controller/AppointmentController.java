@@ -89,7 +89,7 @@ public class AppointmentController {
         return doctorRepository.findAll();
     }
     
-//    getting appointment by doctor id
+//    getting appointment by doctor name
     @RequestMapping(path = "/getappointbyid/{username}", method = RequestMethod.GET)
     public List<Appointment> findByDoctorId(@PathVariable String username ) {
     	System.out.println("username");
@@ -103,6 +103,19 @@ public class AppointmentController {
     }
     
     
+    //getting patient info from appointment table by patient name
+    @RequestMapping(path = "/getpatientinfoby/{username}", method = RequestMethod.GET)
+    public List<Appointment> findByPatientName(@PathVariable String username ) {
+    	System.out.println("username");
+    	System.out.println(username);
+        return appointmentRepository.findBypatientname(username); 
+    }
+    
+    @RequestMapping(path="/paybill",method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+    public String payBill(@RequestBody Appointment id) {
+         appointmentRepository.payBill(true,id.getId());
+         return "Successfully paid";
+    }
     
     
 }

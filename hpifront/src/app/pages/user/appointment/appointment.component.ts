@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,10 +11,10 @@ import Swal from 'sweetalert2';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor(private appointmentservice:AppointmentService,private ds:DoctorService) { }
+  constructor(private appointmentservice:AppointmentService,private ds:DoctorService,private login:LoginService) { }
 
   public appointment={
-    "patientname":"",
+    "patientname":this.login.getUser().fullName,
     "id": '',
     "createdAt": '',
     "appointmentDate": '',
@@ -26,6 +27,7 @@ export class AppointmentComponent implements OnInit {
 list:any[]=[]
   ngOnInit(): void {
     this.getdoctor();
+    console.log(this.appointment.patientname)
   }
 
   getprice(){
@@ -34,6 +36,8 @@ list:any[]=[]
       this.appointment.price=this.list[i].price.toString();
     }
   }
+
+  
   getdoctor(){
     this.ds.getdoctor().subscribe((data:any)=>{
       this.list=data

@@ -25,6 +25,7 @@ public class Appointment {
     private String nameOfDoctor;
     private String prescription;
     private double charges;
+    private boolean status=false;
 //    private Long doctorId;
 //    private AppointmentStatus status = AppointmentStatus.Booked;
     private BigDecimal price;

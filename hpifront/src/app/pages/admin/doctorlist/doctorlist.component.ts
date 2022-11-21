@@ -17,6 +17,9 @@ export class DoctorlistComponent implements OnInit {
     this.ds.getAllDoctors()
     .subscribe(res => {
       this.doctorlist = res;
+
+      console.log(res);
+      console.log(this.doctorlist)
     })
   }
 

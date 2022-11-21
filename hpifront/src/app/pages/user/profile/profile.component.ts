@@ -1,0 +1,50 @@
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from 'src/app/services/profile/profile.service';
+
+@Component({
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
+})
+export class ProfileComponent implements OnInit {
+
+  constructor(private profile:ProfileService) { }
+
+ public userprofile={
+  "id":"",
+  "patientname":"",
+  "nameOfDoctor":"",
+  "appointmentDate":"",
+  "appointmentStartTime":"",
+  "appointmentEndTime":"",
+  "prescription":"",
+  "charges":"",
+  status:false
+  }
+  profilelist:any;
+  ngOnInit(): void {
+    this.findByPatientName();
+  }
+
+  status(id:any,status:boolean){
+    // this.profilelist.status=true;
+    // console.log(this.profilelist.status);
+    this.userprofile.id=id;
+    this.profile.payBill(this.userprofile).subscribe((data)=>{
+  console.log(data)
+    });
+    console.log(status)
+    console.log(id)
+
+  }
+
+  findByPatientName(){this.profile.findByPatientName().subscribe((data)=>{
+    console.log(data)
+    this.profilelist=data
+    // this.profilelist=data.body;
+    console.log(this.profilelist)
+  } );  }
+
+
+  }
+

@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AppointmentComponent } from './pages/user/appointment/appointment.component';
+import { ProfileComponent } from './pages/user/profile/profile.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { DoctorGuard } from './services/doctor.guard';
@@ -86,6 +87,12 @@ const routes: Routes = [
     component:AppointmentlistforadminComponent,
     pathMatch:'full',
     canActivate:[AdminGuard]
+  },
+  {
+    path:'profile',
+    component:ProfileComponent,
+    pathMatch:'full',
+    canActivate:[NormalGuard],
   }
 
 ];

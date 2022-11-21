@@ -11,10 +11,10 @@
               <h3 class="text-center">
                 Book Appointment here!
               </h3>
-              <!-- {{appointment | json}}  -->
+              {{appointment | json}} 
               <form #myForm="ngForm" (ngSubmit)="formSubmit()">
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="name">Patient Name</label>
                   <input  type="text" #name="ngModel" 
                           minlength="3"
@@ -22,10 +22,12 @@
                           [(ngModel)]="appointment.patientname" 
                           name="fullName" 
                           class="form-control"
-                          id="Username" 
+                          id="patientname" 
                           aria-describedby="emailHelp"   
-                          placeholder="Enter Name" required>
-                <div
+                          placeholder="Enter Name" required></div> -->
+
+                          <!---->
+                <!-- <div
                     class="alert alert-danger"
                     role="alert"
                     *ngIf="name.invalid && (name.dirty || name.touched)">
@@ -36,8 +38,8 @@
                     role="alert"
                     *ngIf="name.errors?.['minlength']||name.errors?.['maxlength']">
                     minlength {{name.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
-                  </div>
-                </div>
+                  </div> -->
+                
   
                 <div class="form-group">
                   <label for="name">ID</label>
@@ -59,8 +61,8 @@
                   <div
                     class="alert alert-danger"
                     role="alert"
-                    *ngIf="name.errors?.['minlength']||name.errors?.['maxlength']">
-                    minlength {{name.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
+                    *ngIf="id.errors?.['minlength']||id.errors?.['maxlength']">
+                    minlength {{id.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
                   </div>
                 </div>
   
@@ -124,7 +126,7 @@
 
                
   
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="exampleInputPassword1">Price</label>
                   <input type="number" #phone="ngModel" 
                           [(ngModel)]="appointment.price" 
@@ -137,7 +139,7 @@
                     *ngIf="phone.invalid && (phone.dirty || phone.touched)">
                     Price is a required field
                   </div>
-                </div>
+                </div> -->
   
                
   
@@ -150,13 +152,6 @@
   
             </div>
           </div>
-  
-          
-  
-  
-  
-  
-  
         </div>
       </div>
     </div>

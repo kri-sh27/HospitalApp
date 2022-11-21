@@ -7,13 +7,11 @@
             <div class="container text-center">
               <img src="../../../assets/h.png" alt="" height="100px" width="100px">
             </div>
-
             <h3 class="text-center">
               Register here
             </h3>
             <!-- {{user | json}} -->
             <form #myForm="ngForm" (ngSubmit)="formSubmit()">
-
               <div class="form-group">
                 <label for="name">Username</label>
                 <input  type="text" #username="ngModel" 
@@ -32,7 +30,6 @@
                   Username is a required field it shuold be as user(Number)
                 </div>
                </div>
-
               <div class="form-group">
                 <label for="name">Full Name</label>
                 <input  type="text" #name="ngModel" 
@@ -57,7 +54,6 @@
                   minlength {{name.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
                 </div>
               </div>
-
               <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" #email="ngModel" 
@@ -68,16 +64,13 @@
                         id="email"
                         aria-describedby="emailHelp"
                         placeholder="Enter email" required>
-              
               <div
                   class="alert alert-danger"
                   role="alert"
                   *ngIf="email.invalid && (email.dirty || email.touched)">
                  Valid Email is a required field
                 </div>
-                
               </div>
-
               <div class="form-group">
                 <label for="exampleInputEmail1">Date Of Birth</label>
                 <input type="date" #DOB="ngModel" 
@@ -93,7 +86,6 @@
                   DOB is a required field
                 </div>
               </div>
-
               <div class="form-group">
                 <label for="exampleInputEmail1">Marital Status</label>
                 <ul>
@@ -121,13 +113,11 @@
                     name="maritalstatus"
                     value="unmarried"
                     (change)="onChange($event)"
-                    id="flexRadioDefault2"
-                    />
+                    id="flexRadioDefault2"/>
                     <label>Unmarried</label>
                   </div>
                 </li>
               </ul>
-
                   <div
                   class="alert alert-danger"
                   role="alert"
@@ -135,7 +125,6 @@
                   Maretial is a required field
                 </div> 
               </div>
-
               <div class="form-group">
                 <label for="exampleInputEmail1"> Gender</label>
                   <div
@@ -160,7 +149,6 @@
                       <label >male</label>
                     </div>
                   </li>
-
                   <li>
                     <div class="form-check">
                       <input
@@ -171,8 +159,7 @@
                       name="gender"
                       value="female"
                       (change)="onChange($event)"
-                      id="flexRadioDefault2"
-                      />
+                      id="flexRadioDefault2"/>
                       <label >female</label>
                     </div>
                   </li>
@@ -186,15 +173,12 @@
                       name="gender"
                       value="other"
                       (change)="onChange($event)"
-                      id="flexRadioDefault2"
-                      />
+                      id="flexRadioDefault2"/>
                       <label >other</label>
                     </div>
                   </li>
                 </ul>
-
               </div>
-
               <div class="form-group">
                 <label for="exampleInputEmail1"> Address</label>
                 <input type="text" #Address="ngModel" 
@@ -210,7 +194,6 @@
                   <Address></Address> Address is a required field
                 </div>
               </div>
-
               <div class="form-group">
                 <label for="exampleInputPassword1">Phone Number</label>
                 <input type="number" #phone="ngModel" 
@@ -225,7 +208,6 @@
                   Phone Number is a required field
                 </div>
               </div>
-
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" 
@@ -242,14 +224,11 @@
                   Password is a required field
                 </div>
               </div>
-
               <div class="container text-center" style="margin-top: 10px;">
                 <button  [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Register</button>
                 <button style="margin-left: 20px;" type="button" class="btn btn-primary" (click)="myForm.resetForm()">clear</button>
-
               </div>
             </form>
-
           </div>
         </div>
       </div>

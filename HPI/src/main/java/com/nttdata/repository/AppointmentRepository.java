@@ -20,9 +20,16 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 //    @Query("select s from appointment s where s.name = :name")
     List<Appointment> findBynameOfDoctor( String name);
     
+    List<Appointment> findBypatientname(String name);
+    
     @Transactional
     @Modifying
     @Query(value="update appointment set prescription= :prescription,charges= :charges where id= :id",nativeQuery = true)
      void AddPrescriptionAndFees(@Param("prescription") String prescription, @Param("charges") double charges, @Param("id")Long id);
+   
+    @Transactional
+    @Modifying
+    @Query(value="update appointment set status= :status where id= :id",nativeQuery = true)
+    void payBill(@Param("status") boolean status ,@Param("id") Long id);
 
 }

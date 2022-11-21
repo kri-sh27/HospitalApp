@@ -26,6 +26,7 @@ import { AppointmentlistComponent } from './pages/doctor/appointmentlist/appoint
 import { AppointmentComponent } from './pages/user/appointment/appointment.component';
 import { AddprescriptionComponent } from './pages/doctor/addprescription/addprescription.component';
 import { AppointmentlistforadminComponent } from './pages/admin/appointmentlistforadmin/appointmentlistforadmin.component';
+import { ProfileComponent } from './pages/user/profile/profile.component';
 
 
 
@@ -48,6 +49,7 @@ import { AppointmentlistforadminComponent } from './pages/admin/appointmentlistf
     AppointmentComponent,
     AddprescriptionComponent,
     AppointmentlistforadminComponent,
+    ProfileComponent,
     
   ],
   imports: [
