@@ -13,53 +13,47 @@ export class SignupComponent implements OnInit {
   submitted = false;
   gender: any;
   // maritalstatus:any;
-  
 
-  
   constructor(private userService: UserService,) { }
 
 
   public user = {
 
-    username:'',
+    username: '',
     fullName: '',
     password: '',
-    dob:'',
-    maritalstatus:'',
-    gender:'',
-    address:'',
+    dob: '',
+    maritalstatus: '',
+    gender: '',
+    address: '',
     email: '',
     phone: '',
   }
-  
+
   ngOnInit(): void {
   }
-  onChange(e:any){
-    this.gender=e.value;
+  onChange(e: any) {
+    this.gender = e.value;
     // console.log(this.gender);
   }
 
   formSubmit() {
     //addUser:userservices
     this.userService.addUser(this.user).subscribe(
-      (data:any) => {
+      (data: any) => {
         //success
         console.log(this.user.username);
         console.log(data);
         // alert("sucess");
-        Swal.fire('User Registered Successfully','User ID is '+ data.id,'success');
+        Swal.fire('User Registered Successfully', 'User ID is ' + data.id, 'success');
       },
       (error) => {
         //error
         console.log(error);
         // alert("something went wrong");
-        Swal.fire('Username already present try with another username','error');
+        Swal.fire('Username already present try with another username', 'error');
 
       }
     )
   }
-
-
-
-
 }

@@ -9,27 +9,27 @@ import Swal from 'sweetalert2';
   styleUrls: ['./adddoctor.component.css']
 })
 export class AdddoctorComponent implements OnInit {
-  public doctor={username:'',password:'',email:'',dob:'',fullName:'',phoneNo:'',speciality:'',timing:''}
-  speciality:any
-  constructor(private us:UserService) { }
+  public doctor = { username: '', password: '', email: '', dob: '', fullName: '', phone: '', speciality: '', timing: '' }
+  speciality: any
+  constructor(private us: UserService) { }
 
   ngOnInit(): void {
-  } 
-  onChange(e:any){
+  }
+  onChange(e: any) {
 
-    this.speciality=e.value;
+    this.speciality = e.value;
 
     // console.log(this.gender);
 
   }
-  formSubmit(){
+  formSubmit() {
 
-    this.us.addDoctor(this.doctor).subscribe((data)=>{
+    this.us.addDoctor(this.doctor).subscribe((data) => {
       console.log(data);
-      Swal.fire('Doctor Registered Successfully','success');
+      Swal.fire('Doctor Registered Successfully', 'success');
 
     });
-  
+
   }
 
 }

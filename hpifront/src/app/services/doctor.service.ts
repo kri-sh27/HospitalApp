@@ -7,19 +7,19 @@ import baseUrl from './healper';
 })
 export class DoctorService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllDoctors(){
+  getAllDoctors() {
     return this.http.get<any>(`${baseUrl}/getalldoctors`)
   }
-  
-   registerDoctor(doctor: any) {
+
+  registerDoctor(doctor: any) {
     console.log(doctor);
     return this.http.post(`${baseUrl}/createdoctor`, doctor);
   }
 
-  
-  public getdoctor(){
+
+  public getdoctor() {
     return this.http.get(`${baseUrl}/api/v1/appointments/Doctor`)
   }
 }

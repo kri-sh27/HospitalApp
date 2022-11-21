@@ -1,5 +1,6 @@
 package com.nttdata.repository;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,7 +27,10 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     @Modifying
     @Query(value="update appointment set prescription= :prescription,charges= :charges where id= :id",nativeQuery = true)
      void AddPrescriptionAndFees(@Param("prescription") String prescription, @Param("charges") double charges, @Param("id")Long id);
-   
+      
+    @Query(value="select appointment_start_time from appointment where name_of_doctor = :name and appointment_date = :date",nativeQuery = true)
+    List<Time> getStartTime(@Param("name") String name, @Param("date") LocalDate date) ;
+
     @Transactional
     @Modifying
     @Query(value="update appointment set status= :status where id= :id",nativeQuery = true)

@@ -5,7 +5,7 @@
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-body">
-                        
+
                         <div class="container text-center">
                             <img src="../../../assets/h.png" alt="" height="100px" width="100px">
                         </div>
@@ -17,42 +17,32 @@
                         <form #myForm="ngForm" (ngSubmit)="formSubmit()">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Appointment Id</label>
-                                <input type="text"
-                                 class="form-control" id="id"
-                                 #id="ngModel"
-                                 [(ngModel)]="addprescriptionandfees.id"
-                                    aria-describedby="emailHelp" 
-                                    name="id"
-                                    placeholder="Enter id" required>
-                             </div>
+                                <label type="text" class="form-control" id="id" #id="ngModel"
+                                    [(ngModel)]="addprescriptionandfees.id" aria-describedby="emailHelp" name="id"
+                                    placeholder="Enter id" required>{{addprescriptionandfees.id}}</label>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">prescription</label>
-                                <input type="text"
-                                 class="form-control" id="prescription"
-                                 [(ngModel)]="addprescriptionandfees.prescription"
-                                 #prescription="ngModel"
-                                    name="prescription"
-                                    aria-describedby="emailHelp" 
-                                    placeholder="prescription" required>
-                             </div>
-                             <div class="form-group">
+                                <input type="text" class="form-control" id="prescription"
+                                    [(ngModel)]="addprescriptionandfees.prescription" #prescription="ngModel"
+                                    name="prescription" aria-describedby="emailHelp" placeholder="prescription"
+                                    required>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Charges</label>
-                                <input type="text"
-                                 class="form-control" id="charges"
-                                 [(ngModel)]="addprescriptionandfees.charges"
-                                 #charges="ngModel"
-                                 name="charges"
-                                    
+                                <input type="text" class="form-control" id="charges"
+                                    [(ngModel)]="addprescriptionandfees.charges" #charges="ngModel" name="charges"
                                     placeholder="Enter fees" required>
-                             </div>
+                            </div>
 
-                            
+
                             <div class="container text-center" style="margin-top: 10px;">
-                                <button [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary" >Add</button>
-                                <button class="ml10" style="margin-left: 20px;" type="button"
-                                    class="btn btn-primary"  (click)="myForm.resetForm()">Reset</button>
-                                    <button [routerLink]="'/appointmentlist'" class="ml10" style="margin-left: 20px;" type="button"
-                                    class="btn btn-primary" >Back</button>
+                                <button [disabled]="!myForm.form.valid" type="submit"
+                                    class="btn btn-primary">Add</button>
+                                <button class="ml10" style="margin-left: 20px;" type="button" class="btn btn-primary"
+                                    (click)="myForm.resetForm()">Reset</button>
+                                <button [routerLink]="'/appointmentlist'" class="ml10" style="margin-left: 20px;"
+                                    type="button" class="btn btn-primary">Back</button>
                             </div>
                         </form>
                     </div>

@@ -205,6 +205,10 @@ public class User implements UserDetails  {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	public String getSpeciality() {
+		// TODO Auto-generated method stub
+		return speciality;
+	}
 	
 	
 //	//one patient have many medicine assigned

@@ -1,5 +1,6 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AppointmentService } from 'src/app/services/appointment.service';
 import { AppointmentlistService } from 'src/app/services/appointmentlist.service';
 
 @Component({
@@ -9,17 +10,22 @@ import { AppointmentlistService } from 'src/app/services/appointmentlist.service
 })
 export class AppointmentlistComponent implements OnInit {
 
-  constructor(private appointmentservice:AppointmentlistService) { }
-   appointlist: any;
-    ngOnInit(): void {
-      this.getAllAppointments();
+  constructor(private appointmentservice: AppointmentlistService, private ap: AppointmentService) { }
+  appointlist: any;
+  ngOnInit(): void {
+    this.getAllAppointments();
 
   }
-  getAllAppointments(){this.appointmentservice.getAllAppointments().subscribe((aptlist)=>{
-    this.appointlist= aptlist.body;
-    console.log((this.appointlist));
-  })
+  getAllAppointments() {
+    this.appointmentservice.getAllAppointments().subscribe((aptlist) => {
+      this.appointlist = aptlist.body;
+      console.log((this.appointlist));
+    })
   }
 
+  setAppointmentId(id: any) {
+    this.ap.setAppointmentId(id);
+
+  }
 }
 

@@ -8,16 +8,16 @@ import { AppointmentlistforadminService } from 'src/app/services/appointmentlist
 })
 export class AppointmentlistforadminComponent implements OnInit {
 
-  constructor(private ap:AppointmentlistforadminService) { }
- appointmentlist:any;
+  constructor(private ap: AppointmentlistforadminService) { }
+  appointmentlist: any;
   ngOnInit(): void {
-  this.getAllAppointmentForAdmin();
+    this.getAllAppointmentForAdmin();
   }
 
-  getAllAppointmentForAdmin(){
-    this.ap.getAllAppointmentForAdmin().subscribe((res)=>{
+  getAllAppointmentForAdmin() {
+    this.ap.getAllAppointmentForAdmin().subscribe((res) => {
       console.log(res);
-      this.appointmentlist=res;
+      this.appointmentlist = res;
     })
 
   }

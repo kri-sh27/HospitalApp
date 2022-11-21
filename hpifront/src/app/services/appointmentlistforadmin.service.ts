@@ -7,9 +7,9 @@ import baseUrl from './healper';
 })
 export class AppointmentlistforadminService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllAppointmentForAdmin(){
+  getAllAppointmentForAdmin() {
     return this.http.get<any>(`${baseUrl}/api/v1/appointments/`)
   }
 }

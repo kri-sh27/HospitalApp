@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddprescriptionService } from 'src/app/services/addprescription/addprescription.service';
+import { AppointmentService } from 'src/app/services/appointment.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,13 +10,13 @@ import Swal from 'sweetalert2';
 })
 export class AddprescriptionComponent implements OnInit {
 
-  constructor(private addprescription:AddprescriptionService) { }
+  constructor(private addprescription: AddprescriptionService, private appointmentservice: AppointmentService) { }
 
- addprescriptionandfees={
-  "id":'',
-  "prescription":"",
-  "charges":""
- }
+  addprescriptionandfees = {
+    "id": this.appointmentservice.getAppointmentId(),
+    "prescription": "",
+    "charges": ""
+  }
   ngOnInit(): void {
   }
 
@@ -25,29 +26,28 @@ export class AddprescriptionComponent implements OnInit {
     console.log(this.addprescriptionandfees);
     if (this.addprescriptionandfees.id == null) {
       // alert('User is requirsd');
-      Swal.fire('id is Requird','info');
+      Swal.fire('id is Requird', 'info');
       return;
     }
-    else if(this.addprescriptionandfees.prescription == '' || this.addprescriptionandfees.prescription == null)
-    {
+    else if (this.addprescriptionandfees.prescription == '' || this.addprescriptionandfees.prescription == null) {
       // alert('Email is requird');
-      Swal.fire('Prescription is required','info');
+      Swal.fire('Prescription is required', 'info');
       return;
     }
-  //add rescription
+    //add rescription
     this.addprescription.addprescription(this.addprescriptionandfees).subscribe(
-      (data:any) => {
+      (data: any) => {
         //success
         console.log(this.addprescriptionandfees.id);
         console.log(data);
         // alert("sucess");
-        Swal.fire('presciption added Successfully','success');
+        Swal.fire('presciption added Successfully', 'success');
       },
       (error) => {
         //error
         console.log(error);
         // alert("something went wrong");
-        Swal.fire('something went wrong','error');
+        Swal.fire('something went wrong', 'error');
       }
     )
   }

@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
     password: '',
   }
 
- 
-  constructor(private login:LoginService,private router:Router) { }
+
+  constructor(private login: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,24 +32,24 @@ export class LoginComponent implements OnInit {
     console.log('Login Button clicked');
 
     if (this.loginData.username.trim() == '' || this.loginData.username == null) {
-      Swal.fire('username is requird', 'error'); 
+      Swal.fire('username is requird', 'error');
       return;
     }
 
     else if (this.loginData.password.trim() == '' || this.loginData.password == null) {
-      Swal.fire('password is requird', 'error'); 
+      Swal.fire('password is requird', 'error');
       return;
     }
 
- ///setting user in localstorage
+    ///setting user in localstorage
     this.login.setUser(this.loginData)
     // console.log(this.login.getUser());
-   
+
 
     //request to server to generate token
 
     this.login.generateToken(this.loginData).subscribe(
-      (data:any)=>{
+      (data: any) => {
         console.log("success");
         console.log(data);
         // console.log(this.loginData);
@@ -57,40 +57,39 @@ export class LoginComponent implements OnInit {
         //login...
         this.login.loginUser(data.token);
         this.login.getCurrentUser().subscribe(
-          (user:any)=>{
+          (user: any) => {
             this.login.setUser(user);
             // console.log(user)
 
             // redirect.. ADMIN=> admin dashboard
             // Normal=>normal dashboard
-            if(this.login.getUserRole()=="ADMIN"){
+            if (this.login.getUserRole() == "ADMIN") {
 
               // window.location.href='/admin';
-                this.router.navigate(['admin']);
-                this.login.loginStatusSubject.next(true);
-            }else if(this.login.getUserRole()=="NORMAL"){
+              this.router.navigate(['admin']);
+              this.login.loginStatusSubject.next(true);
+            } else if (this.login.getUserRole() == "NORMAL") {
               // window.location.href='/user-dashboard';
               this.router.navigate(['user-dashboard']);
               this.login.loginStatusSubject.next(true);
-            }else if(this.login.getUserRole()=="DOCTOR"){
+            } else if (this.login.getUserRole() == "DOCTOR") {
               this.router.navigate(['doctor-dashboard'])
               this.login.loginStatusSubject.next(true);
             }
-            
-            else{
+
+            else {
               this.login.logout();
-              
+
             }
           }
-        );},
-      (error:any)=>{
+        );
+      },
+      (error: any) => {
         console.log("error");
         console.log(error);
-        Swal.fire('Invalid Credentials !! try again','error');
+        Swal.fire('Invalid Credentials !! try again', 'error');
 
       }
-      );  
+    );
   }
 }
-//usr=this.getcurrentcur.usrnem
-//baseusrl/hfkfdjk/usr

@@ -6,48 +6,53 @@
           <div class="card">
             <div class="card-body"> -->
 <div class=" container-fluid page">
-    <!-- <div class=" page__box p-3 mt-2">Dashboard</div> -->
-    <div class="col-md-8 offset-md-3">
+  <!-- <div class=" page__box p-3 mt-2">Dashboard</div> -->
+  <div class="col-md-8 offset-md-3">
     <div class="page__content shadow p-3 position-relative">
-        <div class="page__ content-data postion-absolute text-center">
-            All Appointment
-        </div>
-         <div class="mt-3">
-    <table class="table table-bordered" >
-      <thead>
-        <tr>
-          <th>AppointmentID</th>
-          <th>PatientName</th>
-          <th>Date</th>
-          <th>SartTime</th>
-          <th>EndTime</th>
-          <th>prescription</th>
-          <th>Fees</th>
-        
-          <!-- <th>Edit</th>
+      <div class="page__ content-data postion-absolute text-center">
+        All Appointment
+      </div>
+      <div class="mt-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>AppointmentID</th>
+              <th>PatientName</th>
+              <th>Date</th>
+              <th>SartTime</th>
+              <th>EndTime</th>
+              <th>prescription</th>
+              <!-- <th>status</th> -->
+              <th>Fees</th>
+
+              <!-- <th>Edit</th>
           <th>Delete</th> -->
-        </tr>
-        <tr input type="text">
-        </tr>
-      </thead>
-      <tbody class="tbody">
-      <tr *ngFor="let apt of appointlist">
-        <td>{{apt.id}}</td>
-          <td>{{apt.patientname}}</td>
-          <td>{{apt.appointmentDate }}</td>
-          <td>{{apt.appointmentStartTime}}</td>
-          <td>{{apt.appointmentEndTime}}</td>
-          <td>{{apt.prescription}}</td> 
-           <td>{{apt.charges}}</td>
-           <td><button class="btn btn-primary" [routerLink]="'/addprescription'">Add prescription and fees</button></td>
-          <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            </tr>
+            <tr input type="text">
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr *ngFor="let apt of appointlist">
+              <ng-container *ngIf="apt.status==false">
+                <td>{{apt.id}}</td>
+                <td>{{apt.patientname}}</td>
+                <td>{{apt.appointmentDate }}</td>
+                <td>{{apt.appointmentStartTime}}</td>
+                <td>{{apt.appointmentEndTime}}</td>
+                <td>{{apt.prescription}}</td>
+                <td>{{apt.charges}}</td>
+                <!-- <td>{{apt.status}}</td> -->
+                <td><button class="btn btn-primary" [routerLink]="'/addprescription'"
+                    (click)="setAppointmentId(apt.id)">Add prescription and fees</button></td>
+                <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
               (click)="edit(doctor)">Edit</button></td>
           <td><button type="button" class="btn btn-danger" (click)="deleteDoctor(doctor)">Delete</button></td> -->
-        </tr>
-      </tbody>
-    </table>
-    <button [routerLink]="'/doctor-dashboard'" class="ml10" style="margin-left: 20px;" type="button"
-                                    class="btn btn-primary" >Back</button>
-  </div>
-</div>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+        <button [routerLink]="'/doctor-dashboard'" class="ml10" style="margin-left: 20px;" type="button"
+          class="btn btn-primary">Back</button>
+      </div>
     </div>
+  </div>

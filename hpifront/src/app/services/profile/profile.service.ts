@@ -8,15 +8,15 @@ import { LoginService } from '../login.service';
 })
 export class ProfileService {
 
-  constructor( private http:HttpClient,private login:LoginService) { }
-  username=this.login.getUser().fullName;
-  
-  findByPatientName(){
-    return this.http.get<any>(`${baseUrl}/api/v1/appointments/getpatientinfoby/`+ this.username)
+  constructor(private http: HttpClient, private login: LoginService) { }
+  username = this.login.getUser().fullName;
+
+  findByPatientName() {
+    return this.http.get<any>(`${baseUrl}/api/v1/appointments/getpatientinfoby/` + this.username)
   }
 
-  payBill(appointment:any){
-    let id={"id":appointment.id}
+  payBill(appointment: any) {
+    let id = { "id": appointment.id }
     console.log(id)
     return this.http.post<any>(`${baseUrl}/api/v1/appointments/paybill`, id);
   }

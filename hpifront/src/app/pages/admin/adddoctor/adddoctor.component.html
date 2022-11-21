@@ -11,48 +11,29 @@
             <h3 class="text-center">
               Register here
             </h3>
-            <!-- {{user | json}} -->
+            <!-- {{doctor | json}} -->
             <form #myForm="ngForm" (ngSubmit)="formSubmit()">
 
               <div class="form-group">
                 <label for="name">Username</label>
-                <input  type="text" #username="ngModel" 
-                        minlength="3"
-                        maxlength="25"
-                        [(ngModel)]="doctor.username" 
-                        name="username" 
-                        class="form-control"
-                        id="username" 
-                        aria-describedby="emailHelp"   
-                        placeholder="Enter Username" required>
-              <div
-                  class="alert alert-danger"
-                  role="alert"
+                <input type="text" #username="ngModel" minlength="3" maxlength="25" [(ngModel)]="doctor.username"
+                  name="username" class="form-control" id="username" aria-describedby="emailHelp"
+                  placeholder="Enter Username" required>
+                <div class="alert alert-danger" role="alert"
                   *ngIf="username.invalid && (username.dirty || username.touched)">
                   Username is a required field it shuold be as user(Number)
                 </div>
-               </div>
+              </div>
 
               <div class="form-group">
                 <label for="name">Full Name</label>
-                <input  type="text" #name="ngModel" 
-                        minlength="3"
-                        maxlength="25"
-                        [(ngModel)]="doctor.fullName" 
-                        name="fullName" 
-                        class="form-control"
-                        id="Username" 
-                        aria-describedby="emailHelp"   
-                        placeholder="Enter FullName" required>
-              <div
-                  class="alert alert-danger"
-                  role="alert"
-                  *ngIf="name.invalid && (name.dirty || name.touched)">
+                <input type="text" #name="ngModel" minlength="3" maxlength="25" [(ngModel)]="doctor.fullName"
+                  name="fullName" class="form-control" id="Username" aria-describedby="emailHelp"
+                  placeholder="Enter FullName" required>
+                <div class="alert alert-danger" role="alert" *ngIf="name.invalid && (name.dirty || name.touched)">
                   Username is a required field
                 </div>
-                <div
-                  class="alert alert-danger"
-                  role="alert"
+                <div class="alert alert-danger" role="alert"
                   *ngIf="name.errors?.['minlength']||name.errors?.['maxlength']">
                   minlength {{name.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
                 </div>
@@ -60,49 +41,78 @@
 
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" #email="ngModel" 
-                        
-                        [(ngModel)]="doctor.email" 
-                        name="email"
-                        class="form-control"
-                        id="email"
-                        aria-describedby="emailHelp"
-                        placeholder="Enter email" required>
-              
-              <div
-                  class="alert alert-danger"
-                  role="alert"
-                  *ngIf="email.invalid && (email.dirty || email.touched)">
-                 Valid Email is a required field
+                <input type="email" #email="ngModel" [(ngModel)]="doctor.email" name="email" class="form-control"
+                  id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+
+                <div class="alert alert-danger" role="alert" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  Valid Email is a required field
                 </div>
-                
+
               </div>
 
               <div class="form-group">
-  
+
                 <label for="exampleInputEmail1">speciality</label>
-          
+
                 <ul>
                   <li>
                     <div class="form-check">
-                      <input required class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio" name="speciality"
-                        value="General Surgery" (change)="onChange($event)" id="flexRadioDefault2" />
-                        
+                      <input required class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality"
+                        type="radio" name="speciality" value="General Surgery" (change)="onChange($event)"
+                        id="flexRadioDefault2" />
+
                       <label>General Surgery</label>
                     </div>
                   </li>
-        
+
                   <li>
                     <div class="form-check">
-                      <input class="form-check-input" #speciality="ngModel"  [(ngModel)]="doctor.speciality" type="radio"
+                      <input class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio"
                         name="speciality" value="Child Neurology" (change)="onChange($event)" id="flexRadioDefault2" />
                       <label>Child Neurology</label>
                     </div>
                   </li>
                 </ul>
-                </div>
+              </div>
 
-              <!-- <div class="form-group">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Phone Number</label>
+                <input type="number" #phone="ngModel" [(ngModel)]="doctor.phone" name="phone" class="form-control"
+                  id="exampleInputPassword1" placeholder="Phone number" required>
+                <div class="alert alert-danger" role="alert" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                  Phone Number is a required field
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" #password="ngModel" [(ngModel)]="doctor.password" name="password"
+                  class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                <div class="alert alert-danger" role="alert"
+                  *ngIf="password.invalid && (password.dirty || password.touched)">
+                  Password is a required field
+                </div>
+              </div>
+
+              <div class="container text-center" style="margin-top: 10px;">
+                <button [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Register</button>
+                <button style="margin-left: 20px;" type="button" class="btn btn-primary"
+                  (click)="myForm.resetForm()">clear</button>
+                <button [routerLink]="'/admin'" class="ml10" style="margin-left: 20px;" type="button"
+                  class="btn btn-primary">Back</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="form-group">
                 <label for="exampleInputEmail1">Date Of Birth</label>
                 <input type="date" #DOB="ngModel" 
                         [(ngModel)]="doctor.dob" 
@@ -118,7 +128,7 @@
                 </div>
               </div> -->
 
-              <!-- <div class="form-group">
+<!-- <div class="form-group">
                 <label for="exampleInputEmail1">Marital Status</label>
                 <ul>
                   <li>
@@ -160,7 +170,7 @@
                 </div> 
               </div> -->
 
-              <!-- <div class="form-group">
+<!-- <div class="form-group">
                 <label for="exampleInputEmail1"> Gender</label>
                   <div
                   class="alert alert-danger"
@@ -234,62 +244,7 @@
                   <Address></Address> Address is a required field
                 </div>
               </div> -->
-
-              <div class="form-group">
-                <label for="exampleInputPassword1">Phone Number</label>
-                <input type="number" #phone="ngModel" 
-                        [(ngModel)]="doctor.phoneNo" 
-                        name="phone" class="form-control"
-                        id="exampleInputPassword1" 
-                        placeholder="Phone number" required>
-                  <div
-                  class="alert alert-danger"
-                  role="alert"
-                  *ngIf="phone.invalid && (phone.dirty || phone.touched)">
-                  Phone Number is a required field
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" 
-                        #password="ngModel"
-                        [(ngModel)]="doctor.password" 
-                        name="password" 
-                        class="form-control"
-                        id="exampleInputPassword1" 
-                        placeholder="Password" required>
-                  <div
-                  class="alert alert-danger"
-                  role="alert"
-                  *ngIf="password.invalid && (password.dirty || password.touched)">
-                  Password is a required field
-                </div>
-              </div>
-
-              <div class="container text-center" style="margin-top: 10px;">
-                <button  [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Register</button>
-                <button style="margin-left: 20px;" type="button" class="btn btn-primary" (click)="myForm.resetForm()">clear</button>
-                <button [routerLink]="'/admin'" class="ml10" style="margin-left: 20px;" type="button"
-                class="btn btn-primary" >Back</button> 
-
-              </div>
-            </form>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
+              
 <!-- <div class="bootstrap-wrapper">
     <div class="container">
       <div class="row " style="margin-top: 20px;">
@@ -297,8 +252,8 @@
           <div class="card">
             <div class="card-body">
     <h1>Doctor Registration</h1>-->
-    <!-- {{doctor|json}} -->
-   <!-- <form #myForm="ngForm" (ngSubmit)="formSubmit()">
+<!-- {{doctor|json}} -->
+<!-- <form #myForm="ngForm" (ngSubmit)="formSubmit()">
       <div class="form-group">
         <label> Doctor Username</label>
         <input required type="text" class="form-control" #username="ngModel" [(ngModel)]="doctor.username" name="username">
@@ -364,7 +319,7 @@
           </li>
         </ul>
         </div>-->
-        <!-- <td>speciality</td>
+<!-- <td>speciality</td>
          <td>
            <select>
              <option >Child Neurology</option>
@@ -374,8 +329,8 @@
              <option >Orthopedic Surgery</option>
            </select>
          </td> -->
-  
-      <!-- <div class="mb-3">
+
+<!-- <div class="mb-3">
           <label>Available Timing</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="timePreference" value="Morning (9am-12pm)" #timing="ngModel"

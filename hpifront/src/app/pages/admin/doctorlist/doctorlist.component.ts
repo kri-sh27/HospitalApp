@@ -8,19 +8,19 @@ import { DoctorService } from 'src/app/services/doctor.service';
 })
 export class DoctorlistComponent implements OnInit {
 
-  constructor(private ds:DoctorService) { }
-  doctorlist:any[]=[]
+  constructor(private ds: DoctorService) { }
+  doctorlist: any[] = []
   ngOnInit(): void {
     this.getAllDoctors();
   }
-  getAllDoctors(){
+  getAllDoctors() {
     this.ds.getAllDoctors()
-    .subscribe(res => {
-      this.doctorlist = res;
+      .subscribe(res => {
+        this.doctorlist = res;
 
-      console.log(res);
-      console.log(this.doctorlist)
-    })
+        console.log(res);
+        console.log(this.doctorlist)
+      })
   }
 
 }

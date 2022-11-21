@@ -7,8 +7,8 @@ import baseUrl from './healper';
 })
 export class DoctorserviceService {
 
-  constructor(private http:HttpClient) { }
-  public getdoctor(){
+  constructor(private http: HttpClient) { }
+  public getdoctor() {
     return this.http.get(`${baseUrl}/api/v1/appointments/Doctor`)
   }
 }

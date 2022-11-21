@@ -1,60 +1,51 @@
-<!-- <p>profile works!</p> -->
-<!-- <p>appointmentlist works!</p> -->
-<!-- <div class="bootstrap-wrapper">
-    <div class="container">
-      <div class="row " style="margin-top: 20px;">
-        <div class="col-md-8 ml-md-auto">
-          <div class="card">
-            <div class="card-body"> -->
-                <div class=" container-fluid page">
-                    <!-- <div class=" page__box p-3 mt-2">Dashboard</div> -->
-                    <div class="col-md-8 offset-md-3">
-                    <div class="page__content shadow p-3 position-relative">
-                        <div class="page__ content-data postion-absolute text-center">
-                            All Appointment
-                        </div>
-                         <div class="mt-3">
-                    <table class="table table-bordered" >
-                      <thead>
-                        <tr>
-                          <th>AppointmentID</th>
-                          <th>PatientName</th>
-                          <th>Date</th>
-                          <th>SartTime</th>
-                          <th>EndTime</th>
-                          <th>prescription</th>
-                          <th>Fees</th>
-                          <th>Pay</th>
-                        
-                          <!-- <th>Edit</th>
+<div class=" container-fluid page">
+  <div class="col-md-8 offset-md-3">
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__ content-data postion-absolute text-center">
+        All Appointment
+      </div>
+      <div class="mt-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>AppointmentID</th>
+              <th>PatientName</th>
+              <th>Date</th>
+              <th>SartTime</th>
+              <th>EndTime</th>
+              <th>prescription</th>
+              <th>Fees</th>
+              <th>Pay</th>
+
+              <!-- <th>Edit</th>
                           <th>Delete</th> -->
-                        </tr>
-                        <tr input type="text">
-                        </tr>
-                      </thead>
-                      <tbody class="tbody">
-                      <tr *ngFor="let apt of profilelist "  >
-                        <!-- <div *ngIf="apt.status!=true"> -->
-                        <td *ngIf="apt.status!=true">{{apt.id}}</td>
-                          <td *ngIf="apt.status!=true">{{apt.patientname}}</td>
-                          <td *ngIf="apt.status!=true">{{apt.appointmentDate }}</td>
-                          <td *ngIf="apt.status!=true">{{apt.appointmentStartTime}}</td>
-                          <td *ngIf="apt.status!=true">{{apt.appointmentEndTime}}</td>
-                          <td *ngIf="apt.status!=true">{{apt.prescription}}</td> 
-                           <td *ngIf="apt.status!=true">{{apt.charges}}</td>
-                           <td *ngIf="apt.status!=true"><button class="btn btn-primary" (click)="status(apt.id, apt.status=true)">pay</button></td>
-                        <!-- </div> -->
-                          
-                          
-                           <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            </tr>
+            <tr input type="text">
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr *ngFor="let apt of profilelist ">
+              <!-- <div *ngIf="apt.status!=true"> -->
+              <td *ngIf="apt.status!=true">{{apt.id}}</td>
+              <td *ngIf="apt.status!=true">{{apt.patientname}}</td>
+              <td *ngIf="apt.status!=true">{{apt.appointmentDate }}</td>
+              <td *ngIf="apt.status!=true">{{apt.appointmentStartTime}}</td>
+              <td *ngIf="apt.status!=true">{{apt.appointmentEndTime}}</td>
+              <td *ngIf="apt.status!=true">{{apt.prescription}}</td>
+              <td *ngIf="apt.status!=true">{{apt.charges}}</td>
+              <td *ngIf="apt.status!=true"><button class="btn btn-primary"
+                  (click)="status(apt.id, apt.status=true)">pay</button></td>
+              <!-- </div> -->
+
+
+              <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                               (click)="edit(doctor)">Edit</button></td>
                           <td><button type="button" class="btn btn-danger" (click)="deleteDoctor(doctor)">Delete</button></td> -->
-                        <!-- </tr> -->
-                      </tbody>
-                    </table>
-                    <button [routerLink]="'/user-dashboard'" class="ml10" style="margin-left: 20px;" type="button"
-                                                    class="btn btn-primary" >Back</button>
-                  </div>
-                </div>
-                    </div>
-                
+              <!-- </tr> -->
+          </tbody>
+        </table>
+        <button [routerLink]="'/user-dashboard'" class="ml10" style="margin-left: 20px;" type="button"
+          class="btn btn-primary">Back</button>
+      </div>
+    </div>
+  </div>
