@@ -8,11 +8,11 @@
 
     <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" type="button" style="margin-right: 20px;"
         class="btn btn-primary">Register</a>
-
-    <a *ngIf="isLoggedIn && user" type="button" style="margin-left: 800px;"
-        class="btn btn-primary">{{login.getUser().username}}</a>
-
+<div class="form-group">
+    <a *ngIf="isLoggedIn && user" type="button" style="margin-left: 850px;" 
+        class="btn btn-primary">{{login.getUser().fullName}}</a></div>
+<div class="form-group">
     <a (click)="logout()" [routerLink]="'/login'" *ngIf="isLoggedIn" type="button" style="margin-right: 20px;"
         class="btn btn-primary">Logout</a>
-
+    </div>
 </nav>

@@ -23,6 +23,7 @@
               <th>EndTime</th>
               <th>HealthIssue</th>
               <th>prescription</th>
+              <th>note</th>
               <!-- <th>status</th> -->
               <th>Fees</th>
 
@@ -40,8 +41,9 @@
                 <td>{{apt.appointmentDate }}</td>
                 <td>{{apt.appointmentStartTime}}</td>
                 <td>{{apt.appointmentEndTime}}</td>
-                <td>{{apt.prescription}}</td>
                 <td>{{apt.healthIssue}}</td>
+                <td>{{apt.prescription}}</td>
+                <td>{{apt.note}}</td>
                 <td>{{apt.charges}}</td>
                 <!-- <td>{{apt.status}}</td> -->
                 <td><button class="btn btn-primary" [routerLink]="'/addprescription'"

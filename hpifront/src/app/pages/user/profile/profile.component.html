@@ -1,5 +1,5 @@
 <div class=" container-fluid page">
-  <div class="col-md-8 offset-md-3">
+  <div class="col-md-10 offset-md-1">
     <div class="page__content shadow p-3 position-relative">
       <div class="page__ content-data postion-absolute text-center">
         All Appointment
@@ -9,14 +9,18 @@
           <thead>
             <tr>
               <th>AppointmentID</th>
-              <th>PatientName</th>
+              <!-- <th>PatientName</th> -->
               <th>Doctor</th>
               <th>Date</th>
               <th>StartTime</th>
               <th>EndTime</th>
+              <th>HealthIssue</th>
               <th>Prescription</th>
+              <th>Note</th>
               <th>Fees</th>
-              <th>Pay</th>
+              <th>Payment Status</th>
+              <th>Patient Status</th>
+
 
               <!-- <th>Edit</th>
                           <th>Delete</th> -->
@@ -27,16 +31,24 @@
           <tbody class="tbody">
             <tr *ngFor="let apt of profilelist ">
               <!-- <div *ngIf="apt.status!=true"> -->
-              <td *ngIf="apt.status!=true">{{apt.id}}</td>
-              <td *ngIf="apt.status!=true">{{apt.patientname}}</td>
-              <td *ngIf="apt.status!=true">{{apt.nameOfDoctor}}</td>
-              <td *ngIf="apt.status!=true">{{apt.appointmentDate }}</td>
-              <td *ngIf="apt.status!=true">{{apt.appointmentStartTime}}</td>
-              <td *ngIf="apt.status!=true">{{apt.appointmentEndTime}}</td>
-              <td *ngIf="apt.status!=true">{{apt.prescription}}</td>
-              <td *ngIf="apt.status!=true">{{apt.charges}}</td>
-              <td *ngIf="apt.status!=true"><button class="btn btn-primary"
-                  (click)="status(apt.id, apt.status=true)">pay</button></td>
+              <td >{{apt.id}}</td>
+              <!-- <td *ngIf="apt.status!=true">{{apt.patientname}}</td> -->
+              <td >{{apt.nameOfDoctor}}</td>
+              <td >{{apt.appointmentDate }}</td>
+              <td >{{apt.appointmentStartTime}}</td>
+              <td >{{apt.appointmentEndTime}}</td>
+              <td >{{apt.healthIssue}}</td>
+
+              <td >{{apt.prescription}}</td>
+              <td>{{apt.note}}</td>
+              <td >{{apt.charges}}</td>
+              <!-- <td *ngIf="apt.status!=true">{{apt.status}}</td> -->
+              <td *ngIf="apt.status==false"> Pending</td>
+              <td *ngIf="apt.status==false">Treatment in progress</td>
+              <td *ngIf="apt.status==true">Payment Done </td>
+              <td *ngIf="apt.status==true"> Discharged</td>
+              <!-- <td *ngIf="apt.status!=true"><button class="btn btn-primary"
+                  (click)="status(apt.id, apt.status=true)">pay</button></td> -->
               <!-- </div> -->
 
 

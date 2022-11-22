@@ -1,5 +1,6 @@
 <!-- <p>appointmentlistforadmin works!</p> -->
 <div class=" container-fluid page">
+  <div class="col-md-10 offset-md-1">
   <!-- <div class=" page__box p-3 mt-2">Dashboard</div> -->
   <div class="page__content shadow p-3 position-relative">
     <div class="page__ content-data postion-absolute text-center">
@@ -18,8 +19,10 @@
             <th>End Time</th>
             <th>Health issue</th>
             <th>Prescription</th>
+            <th>Note</th>
             <th>Charges</th>
             <th>Status</th>
+            <th>Pay</th>
             <!-- <th>Edit</th>
           <th>Delete</th> -->
           </tr>
@@ -34,10 +37,13 @@
             <td>{{al.appointmentEndTime}}</td>
             <td>{{al.healthIssue}}</td>
             <td>{{al.prescription}}</td>
+            <td>{{al.note}}</td>
             <td>{{al.charges}}</td>
-            <td *ngIf="al.status==false">Admited</td>
+            <td *ngIf="al.status==false">Treatment in progress</td>
             <td *ngIf="al.status==true">Payment Done / Discharged</td>
-            <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            <td ><button [disabled]="al.status==true" class="btn btn-primary"
+                (click)="status(al.id, al.status=true)">pay</button></td> 
+                <!-- --<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
               (click)="edit(doctor)">Edit</button></td>
           <td><button type="button" class="btn btn-danger" (click)="deleteDoctor(doctor)">Delete</button></td> -->
           </tr>
@@ -46,5 +52,6 @@
       <button [routerLink]="'/admin'" class="ml10" style="margin-left: 20px;" type="button"
         class="btn btn-primary">Back</button>
     </div>
+  </div>
   </div>
 </div>

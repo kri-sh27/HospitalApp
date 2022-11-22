@@ -15,37 +15,21 @@
             <form #myForm="ngForm" (ngSubmit)="formSubmit()">
 
               <div class="form-group">
-                <label for="name">Patient Name</label>
-                <label type="text" #name="ngModel" minlength="3" maxlength="25" [(ngModel)]="appointment.patientname"
-                  name="fullName" class="form-control" id="patientname" aria-describedby="emailHelp"
-                  placeholder="Enter Name" required>{{appointment.patientname}}</label>
+                <label for="name">Patient Name:- &nbsp;</label>
+                <label #name="ngModel"  [(ngModel)]="appointment.patientname"
+                  name="fullName"  id="patientname" 
+                  placeholder="Enter Name" required>{{ appointment.patientname}}</label>
               </div>
-
-              <!---->
-              <div class="alert alert-danger" role="alert" *ngIf="name.invalid && (name.dirty || name.touched)">
-                Name is a required field
-              </div>
-              <div class="alert alert-danger" role="alert"
-                *ngIf="name.errors?.['minlength']||name.errors?.['maxlength']">
-                minlength {{name.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
-              </div>
-
 
               <div class="form-group">
-                <label for="name"> Patient ID</label>
-                <label type="text" #id="ngModel" minlength="3" maxlength="25" [(ngModel)]="appointment.id"
-                  name="fullName" class="form-control" id="Username" aria-describedby="emailHelp" placeholder="Enter id"
+                <label for="name"> Patient ID :- &nbsp;</label>
+                <label style="margin-top: 10px;" type="text" #id="ngModel" [(ngModel)]="appointment.id"
+                  name="fullName"  id="Username" aria-describedby="emailHelp" placeholder="Enter id"
                   required>{{appointment.id}}</label>
-                <div class="alert alert-danger" role="alert" *ngIf="id.invalid && (id.dirty || id.touched)">
-                  ID is a required field
-                </div>
-                <div class="alert alert-danger" role="alert" *ngIf="id.errors?.['minlength']||id.errors?.['maxlength']">
-                  minlength {{id.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is required
-                </div>
               </div>
 
               <div class="form-group">
-                <label for="branch">Doctor name</label>
+                <label style="margin-top: 10px;" for="branch">Doctor name</label>
                 <select [(ngModel)]="appointment.nameOfDoctor" (change)="getspeciality()" id="branch" name="branch"
                   ngModel class="form-control">
                   <option *ngFor="let d of list" [value]="d.fullName">
@@ -58,10 +42,6 @@
                 <label for="exampleInputPassword1">Speciality</label>
                 <input type="text" #speciality="ngModel" [(ngModel)]="appointment.speciality" name="speciality"
                   class="form-control" id="exampleInputPassword1" placeholder="Speciality" required>
-                <div class="alert alert-danger" role="alert"
-                  *ngIf="speciality.invalid && (speciality.dirty || speciality.touched)">
-                  Price is a required field
-                </div>
               </div>
 
               <div class="form-group">
@@ -122,30 +102,16 @@
                 </div>
               </div>
 
-
-
-
-
-
-
-
               <div class="form-group">
                 <label for="name">health issue</label>
-                <input type="textarea" #healthIssue="ngModel" minlength="3" maxlength="25"
+                <textarea type="textarea" #healthIssue="ngModel" 
                   [(ngModel)]="appointment.healthIssue" ngModel name="healthIssue" class="form-control" id="healthIssue"
-                  aria-describedby="emailHelp" placeholder="Enter health issue" required>
+                  aria-describedby="emailHelp" placeholder="Enter health issue" required></textarea>
                 <div class="alert alert-danger" role="alert"
                   *ngIf="healthIssue.invalid && (healthIssue.dirty || healthIssue.touched)">
                   Mention health issue is a required field
                 </div>
-                <div class="alert alert-danger" role="alert"
-                  *ngIf="healthIssue.errors?.['minlength']||healthIssue.errors?.['maxlength']">
-                  minlength {{healthIssue.errors?.['minlength']?.['requiredLength']}} is required and maxlength 25 is
-                  required
-                </div>
               </div>
-
-
 
               <div class="container text-center" style="margin-top: 10px;">
                 <button [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Book</button>
@@ -153,10 +119,8 @@
                   (click)="myForm.resetForm()">clear</button>
                 <button [routerLink]="'/user-dashboard'" class="ml10" style="margin-left: 20px;" type="button"
                   class="btn btn-primary">Back</button>
-
               </div>
             </form>
-
           </div>
         </div>
       </div>

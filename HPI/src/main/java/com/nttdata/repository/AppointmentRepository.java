@@ -25,8 +25,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     
     @Transactional
     @Modifying
-    @Query(value="update appointment set prescription= :prescription,charges= :charges where id= :id",nativeQuery = true)
-     void AddPrescriptionAndFees(@Param("prescription") String prescription, @Param("charges") double charges, @Param("id")Long id);
+    @Query(value="update appointment set prescription= :prescription,charges= :charges,note= :note where id= :id",nativeQuery = true)
+     void AddPrescriptionAndFees(@Param("prescription") String prescription, @Param("charges") double charges, @Param("note") String note,  @Param("id")Long id);
       
     @Query(value="select appointment_start_time from appointment where name_of_doctor = :name and appointment_date = :date",nativeQuery = true)
     List<Time> getStartTime(@Param("name") String name, @Param("date") LocalDate date) ;

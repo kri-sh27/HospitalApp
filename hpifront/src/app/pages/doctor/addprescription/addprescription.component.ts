@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddprescriptionService } from 'src/app/services/addprescription/addprescription.service';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { AppointmentlistforadminService } from 'src/app/services/appointmentlistforadmin.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,7 +16,9 @@ export class AddprescriptionComponent implements OnInit {
   addprescriptionandfees = {
     "id": this.appointmentservice.getAppointmentId(),
     "prescription": "",
-    "charges": ""
+    "charges": "",
+    "note":"",
+  
   }
   ngOnInit(): void {
   }

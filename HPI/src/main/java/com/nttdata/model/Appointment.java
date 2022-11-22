@@ -27,6 +27,7 @@ public class Appointment {
     private double charges;
     private String speciality;
     private String healthIssue;
+    private String note;
     private boolean status=false;
 //    private Long doctorId;
 //    private AppointmentStatus status = AppointmentStatus.Booked;

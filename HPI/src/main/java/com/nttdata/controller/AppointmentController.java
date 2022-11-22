@@ -53,12 +53,7 @@ public class AppointmentController {
         return appointmentService.findAll();
     }
 
-    /** GET request to return all appointments based on a date range and ordered by price **/
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Appointment> findByDateRangeSortedByPrice(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("startDate") LocalDate startDate,
-                                                              @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("endDate") LocalDate endDate) {
-        return appointmentService.findByDateRangeSortedByPrice(startDate, endDate);
-    }
+
 
     /** POST request to add new appointments **/
     @RequestMapping(method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
@@ -74,12 +69,7 @@ public class AppointmentController {
         return appointmentService.update(appointmentId, appointment);
     }
 
-    /** PATCH request to update status of an appointment **/
-    @RequestMapping(path = "/{appointmentId}", method = RequestMethod.PATCH, produces = "application/json", consumes = "application/json")
-    @ResponseStatus(HttpStatus.OK)
-    public Appointment updateStatus(@PathVariable Long appointmentId, @RequestBody Appointment appointment) {
-        return appointmentService.updateStatus(appointmentId, appointment);
-    }
+
 
     /** DELETE request to delete specific appointments **/
     @RequestMapping(path = "/{appointmentId}", method = RequestMethod.DELETE)
@@ -102,7 +92,7 @@ public class AppointmentController {
     
     @RequestMapping(path="/addprescriptionandfees",method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
     public void AddPrescriptionAndFees(@RequestBody PrescriptionAndFees prescriptionandfees) {
-         appointmentRepository.AddPrescriptionAndFees(prescriptionandfees.prescription, prescriptionandfees.charges, prescriptionandfees.id);
+         appointmentRepository.AddPrescriptionAndFees(prescriptionandfees.prescription, prescriptionandfees.charges,prescriptionandfees.note, prescriptionandfees.id);
     }
     
     
