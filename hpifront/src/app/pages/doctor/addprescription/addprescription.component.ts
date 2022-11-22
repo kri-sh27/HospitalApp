@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AddprescriptionService } from 'src/app/services/addprescription/addprescription.service';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { AppointmentlistService } from 'src/app/services/appointmentlist.service';
 import { AppointmentlistforadminService } from 'src/app/services/appointmentlistforadmin.service';
+import { GetappointmentbyidService } from 'src/app/services/getappointmentbyid/getappointmentbyid.service';
+import { LoginService } from 'src/app/services/login.service';
+import { ProfileService } from 'src/app/services/profile/profile.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,18 +15,35 @@ import Swal from 'sweetalert2';
 })
 export class AddprescriptionComponent implements OnInit {
 
-  constructor(private addprescription: AddprescriptionService, private appointmentservice: AppointmentService) { }
-
+  constructor(private addprescription: AddprescriptionService, private appointmentservice: AppointmentService,private getbyid:GetappointmentbyidService) { }
+  
   addprescriptionandfees = {
     "id": this.appointmentservice.getAppointmentId(),
+    // "patientname": this.login.getUser().fullName,
+    // "name":this.profile.findByPatientName(),
     "prescription": "",
     "charges": "",
     "note":"",
-  
-  }
-  ngOnInit(): void {
   }
 
+  appointment:any;
+  ngOnInit(): void {
+    let idfor=this.addprescriptionandfees.id;console.log(idfor);
+    this.getappointmentbyid(idfor);
+    console.log("called");
+
+  }
+
+// idfor=this.addprescriptionandfees.id;
+
+getappointmentbyid(id:any){
+  console.log(id);
+  this.getbyid.getappointmentbyid(id).subscribe((data:any)=>{
+    this.appointment=data;
+    console.log(this.appointment);
+    console.log(data)
+  });
+}
 
   formSubmit() {
     // alert('submit')

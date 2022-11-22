@@ -11,6 +11,8 @@ export class AppointmentlistService {
   constructor(private http: HttpClient, private login: LoginService) { }
   username = this.login.getUser().fullName;
 
+
+  //get appointment details by patientname
   getAllAppointments() {
     console.log(this.username);
     return this.http.get<any>(`${baseUrl}/api/v1/appointments/getappointbyid/` + this.username, {

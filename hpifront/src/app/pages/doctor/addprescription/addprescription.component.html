@@ -1,4 +1,5 @@
 <!-- <p>addprescription works!</p> -->
+<!-- <app-appointmentlist></app-appointmentlist> -->
 <div class="bootstrap-wrapper">
     <div class="container">
         <div class="row " style="margin-top: 20px;">
@@ -15,13 +16,28 @@
                         </h3>
                         <!-- {{addprescriptionandfees|json}}  -->
                         <form #myForm="ngForm" (ngSubmit)="formSubmit()">
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Appointment Id : &nbsp;</label>
                                 <label type="text" id="id" #id="ngModel"
-                                    [(ngModel)]="addprescriptionandfees.id" aria-describedby="emailHelp" name="id"
+                                    [(ngModel)]="addprescriptionandfees.id"  aria-describedby="emailHelp" name="id"
                                     placeholder="Enter id" required>{{addprescriptionandfees.id}}</label>
                             </div>
                             
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">PatientName : &nbsp;</label>
+                                <label type="text" id="id" #id="ngModel"
+                                    [(ngModel)]="appointment.patientname" aria-describedby="emailHelp" name="patientname"
+                                    placeholder="Enter id" required>{{appointment.patientname}}</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">HealthIssue : &nbsp;</label>
+                                <label type="text" id="id" #id="ngModel"
+                                    [(ngModel)]="appointment.healthIssue"  name="healthIssue"
+                                     required>{{appointment.healthIssue}}</label>
+                            </div>
+                                <!-- <h1>{{a}}</h1> -->
                             <div class="form-group">
                                 <label style="margin-top: 10px;" for="exampleInputEmail1">prescription</label>
                                 <textarea type="text" class="form-control" id="prescription"

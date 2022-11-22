@@ -12,8 +12,11 @@ export class AppointmentlistComponent implements OnInit {
 
   constructor(private appointmentservice: AppointmentlistService, private ap: AppointmentService) { }
   appointlist: any;
+ 
   ngOnInit(): void {
     this.getAllAppointments();
+  
+    
 
   }
   getAllAppointments() {
