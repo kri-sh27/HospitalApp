@@ -10,10 +10,11 @@
             <tr>
               <th>AppointmentID</th>
               <th>PatientName</th>
+              <th>Doctor</th>
               <th>Date</th>
-              <th>SartTime</th>
+              <th>StartTime</th>
               <th>EndTime</th>
-              <th>prescription</th>
+              <th>Prescription</th>
               <th>Fees</th>
               <th>Pay</th>
 
@@ -28,6 +29,7 @@
               <!-- <div *ngIf="apt.status!=true"> -->
               <td *ngIf="apt.status!=true">{{apt.id}}</td>
               <td *ngIf="apt.status!=true">{{apt.patientname}}</td>
+              <td *ngIf="apt.status!=true">{{apt.nameOfDoctor}}</td>
               <td *ngIf="apt.status!=true">{{apt.appointmentDate }}</td>
               <td *ngIf="apt.status!=true">{{apt.appointmentStartTime}}</td>
               <td *ngIf="apt.status!=true">{{apt.appointmentEndTime}}</td>

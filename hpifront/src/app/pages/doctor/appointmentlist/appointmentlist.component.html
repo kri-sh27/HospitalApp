@@ -7,7 +7,7 @@
             <div class="card-body"> -->
 <div class=" container-fluid page">
   <!-- <div class=" page__box p-3 mt-2">Dashboard</div> -->
-  <div class="col-md-8 offset-md-3">
+  <!-- <div class="col-md-8 offset-md-3"> -->
     <div class="page__content shadow p-3 position-relative">
       <div class="page__ content-data postion-absolute text-center">
         All Appointment
@@ -19,8 +19,9 @@
               <th>AppointmentID</th>
               <th>PatientName</th>
               <th>Date</th>
-              <th>SartTime</th>
+              <th>StartTime</th>
               <th>EndTime</th>
+              <th>HealthIssue</th>
               <th>prescription</th>
               <!-- <th>status</th> -->
               <th>Fees</th>
@@ -40,6 +41,7 @@
                 <td>{{apt.appointmentStartTime}}</td>
                 <td>{{apt.appointmentEndTime}}</td>
                 <td>{{apt.prescription}}</td>
+                <td>{{apt.healthIssue}}</td>
                 <td>{{apt.charges}}</td>
                 <!-- <td>{{apt.status}}</td> -->
                 <td><button class="btn btn-primary" [routerLink]="'/addprescription'"
