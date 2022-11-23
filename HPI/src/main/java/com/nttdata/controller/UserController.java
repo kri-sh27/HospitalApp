@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -65,6 +66,7 @@ public class UserController {
 		System.out.println(user);
 		//encoding password with bcryptpassword encoder
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        
 		Set<UserRole> roles = new HashSet<>();
 
 		Role role = new Role();
@@ -79,29 +81,22 @@ public class UserController {
 		
 			doctorService.addDoctor(new Doctor(user.getUsername(),user.getPassword(),user.getFullName(),user.getPhone(),user.getSpeciality()) );
 		
-		return this.userService.createUser(user, roles);
+		User u = this.userService.createUser(user, roles);
+		return u;
+//		return {"status":HttpStatus.CREATED,"message":,u}
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//  Return Json object throw new 
+	// return { "status": 200 , "message" : "User created/ Failed with ", "user": }
 
 //	// get Api Fot getting user by Gmail
 	@GetMapping("/{username}")
 	public User getUser(@PathVariable("username") String username) {
 		return this.userService.getUser(username);
 	}
-//
+
 //	// delete the user by id
 	@DeleteMapping("/{userId}")
 	public void deleteUser(@PathVariable("userId") Long uerId) {

@@ -11,6 +11,18 @@ import Swal from 'sweetalert2';
 export class AdddoctorComponent implements OnInit {
   public doctor = { username: '', password: '', email: '', dob: '', fullName: '', phone: '', speciality: '', timing: '' }
   speciality: any
+  public user = {
+
+    username: '',
+    fullName: '',
+    password: '',
+    dob: '',
+    maritalstatus: '',
+    gender: '',
+    address: '',
+    email: '',
+    phone: '',
+  }
   constructor(private us: UserService) { }
 
   ngOnInit(): void {
@@ -28,15 +40,16 @@ export class AdddoctorComponent implements OnInit {
     this.us.addDoctor(this.doctor).subscribe(
       (data) => {
       console.log(data);
+    
       Swal.fire('Doctor Registered Successfully', 'success');
     },
-    //  (error) => {
-    //   //error
-    //   console.log(error);
-    //   // alert("something went wrong");
-    //   Swal.fire('Username already present try with another username', 'error');
+     (error) => {
+      //error
+      console.log(error);
+      // alert("something went wrong");
+      Swal.fire('Username already present try with another username', 'error');
 
-    // }
+    }
     )
   }
 

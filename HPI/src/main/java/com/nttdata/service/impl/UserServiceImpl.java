@@ -4,7 +4,10 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.HttpStatusCodeException;
 
 import com.nttdata.model.Role;
 import com.nttdata.model.User;
@@ -29,7 +32,7 @@ public class UserServiceImpl implements UserService {
 //		User local = this.userRepository.findByEmail(user.getEmail());
 		if (local != null) {
 			System.out.println("User is already there !!");
-			throw new Exception("User already present!!");
+			throw new HttpServerErrorException(HttpStatus.NOT_FOUND,"User already present");
 		} 
 		else {
 			// user create
