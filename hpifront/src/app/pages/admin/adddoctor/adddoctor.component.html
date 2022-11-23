@@ -5,12 +5,12 @@
         <div class="card">
           <div class="card-body">
             <div class="container text-center">
-              <img src="../../../assets/h.png" alt="" height="100px" width="100px">
+              <img src="../../../assets/h.png" alt="" height="100px" width="100px" >
             </div>
 
-            <h3 class="text-center">
+            <h2 class="text-center">
               Register here
-            </h3>
+            </h2>
             <!-- {{doctor | json}} -->
             <form #myForm="ngForm" (ngSubmit)="formSubmit()">
 
@@ -58,21 +58,49 @@
                   <li>
                     <div class="form-check">
                       <input required class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality"
-                        type="radio" name="speciality" value="General Surgery" (change)="onChange($event)"
+                        type="radio" name="speciality" value="General Doctor" (change)="onChange($event)"
                         id="flexRadioDefault2" />
-
-                      <label>General Surgery</label>
+                      <label>General Doctor</label>
                     </div>
                   </li>
 
                   <li>
                     <div class="form-check">
                       <input class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio"
-                        name="speciality" value="Child Neurology" (change)="onChange($event)" id="flexRadioDefault2" />
-                      <label>Child Neurology</label>
+                        name="speciality" value="Child Neurology expert" (change)="onChange($event)" id="flexRadioDefault2" />
+                      <label>Child Neurology expert</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio"
+                        name="speciality" value="Dental Care Expert" (change)="onChange($event)" id="flexRadioDefault2" />
+                      <label>Dental Care Expert</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio"
+                        name="speciality" value="Eye specialist" (change)="onChange($event)" id="flexRadioDefault2" />
+                      <label>Eye specialist</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio"
+                        name="speciality" value="Cardioloty Expert" (change)="onChange($event)" id="flexRadioDefault2" />
+                      <label>Cardioloty Expert</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input class="form-check-input" #speciality="ngModel" [(ngModel)]="doctor.speciality" type="radio"
+                        name="speciality" value="Orthopedic Surgery" (change)="onChange($event)" id="flexRadioDefault2" />
+                      <label>Orthopedic Surgery</label>
                     </div>
                   </li>
                 </ul>
+
               </div>
 
               <div class="form-group">

@@ -14,6 +14,7 @@ export class AdddoctorComponent implements OnInit {
   constructor(private us: UserService) { }
 
   ngOnInit(): void {
+    
   }
   onChange(e: any) {
 
@@ -24,12 +25,19 @@ export class AdddoctorComponent implements OnInit {
   }
   formSubmit() {
 
-    this.us.addDoctor(this.doctor).subscribe((data) => {
+    this.us.addDoctor(this.doctor).subscribe(
+      (data) => {
       console.log(data);
       Swal.fire('Doctor Registered Successfully', 'success');
+    },
+    //  (error) => {
+    //   //error
+    //   console.log(error);
+    //   // alert("something went wrong");
+    //   Swal.fire('Username already present try with another username', 'error');
 
-    });
-
+    // }
+    )
   }
 
 }

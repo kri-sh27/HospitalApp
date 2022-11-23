@@ -52,9 +52,6 @@ public class AppointmentController {
     List<Appointment> findAll() {
         return appointmentService.findAll();
     }
-
-
-
     /** POST request to add new appointments **/
     @RequestMapping(method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)

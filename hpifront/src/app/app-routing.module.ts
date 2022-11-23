@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdddoctorComponent } from './pages/admin/adddoctor/adddoctor.component';
 import { AppointmentlistforadminComponent } from './pages/admin/appointmentlistforadmin/appointmentlistforadmin.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -31,6 +32,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    pathMatch: 'full',
   },
   {
     path: 'admin',

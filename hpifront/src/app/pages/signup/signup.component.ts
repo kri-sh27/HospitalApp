@@ -15,8 +15,6 @@ export class SignupComponent implements OnInit {
   // maritalstatus:any;
 
   constructor(private userService: UserService,) { }
-
-
   public user = {
 
     username: '',
