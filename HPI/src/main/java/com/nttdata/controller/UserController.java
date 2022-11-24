@@ -1,11 +1,12 @@
 package com.nttdata.controller;
 
 import java.util.HashSet;
-
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -56,7 +57,13 @@ public class UserController {
 
 		roles.add(userRole);
 		//email verification
+//		return this.userService.createUser(user, roles);
 		return this.userService.createUser(user, roles);
+//		if(u==null) {
+//			return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).build();
+//		}
+//			return ResponseEntity.of(Optional.of(u));
+		
 	}
 	
 	
@@ -79,10 +86,10 @@ public class UserController {
 
 		roles.add(userRole);
 		
-			doctorService.addDoctor(new Doctor(user.getUsername(),user.getPassword(),user.getFullName(),user.getPhone(),user.getSpeciality()) );
+		doctorService.addDoctor(new Doctor(user.getUsername(),user.getPassword(),user.getFullName(),user.getPhone(),user.getSpeciality()) );
 		
-		User u = this.userService.createUser(user, roles);
-		return u;
+		return this.userService.createUser(user, roles);
+		
 //		return {"status":HttpStatus.CREATED,"message":,u}
 	}
 	

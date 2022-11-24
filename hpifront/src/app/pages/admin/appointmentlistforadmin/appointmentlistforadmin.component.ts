@@ -22,10 +22,15 @@ export class AppointmentlistforadminComponent implements OnInit {
     this.appointmentlist.id = id;
     this.profile.payBill(this.appointmentlist).subscribe((data) => {
       console.log(data)
-
+      Swal.fire('Payment Done Successfully', 'success');
+    },
+    (error: any) => {
+      console.log("error");
+      console.log(error);
+      Swal.fire('Invalid Credentials !! try again', 'error');
 
     });
-    Swal.fire('Payment Done Successfully', 'success');
+    // Swal.fire('Payment Done Successfully', 'success');
 
     console.log(status);
     console.log(id);

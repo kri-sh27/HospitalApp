@@ -33,13 +33,11 @@ export class ProfileComponent implements OnInit {
     this.userprofile.id = id;
     this.profile.payBill(this.userprofile).subscribe((data) => {
       console.log(data)
-
-
+      Swal.fire('Payment Done Successfully', 'success');
     });
-    Swal.fire('Payment Done Successfully', 'success');
-
-    console.log(status);
-    console.log(id);
+    // Swal.fire('Payment Done Successfully', 'success');
+    // console.log(status);
+    // console.log(id);
   }
 
   findByPatientName() {

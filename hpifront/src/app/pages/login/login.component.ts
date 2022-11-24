@@ -87,7 +87,8 @@ export class LoginComponent implements OnInit {
       (error: any) => {
         console.log("error");
         console.log(error);
-        Swal.fire('Invalid Credentials !! try again', 'error');
+      //  let m:string=String(error.status)
+        Swal.fire('invalid credentials', 'error');
 
       }
     );

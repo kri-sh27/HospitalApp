@@ -76,6 +76,7 @@ public class AppointmentController {
     }
     @RequestMapping(path = "/Doctor", method = RequestMethod.GET)
     public List<Doctor> findById() {
+    	
         return doctorRepository.findAll();
     }
     
@@ -102,9 +103,9 @@ public class AppointmentController {
     }
     
     @RequestMapping(path="/paybill",method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
-    public String payBill(@RequestBody Appointment id) {
+    public void payBill(@RequestBody Appointment id) {
          appointmentRepository.payBill(true,id.getId());
-         return "Successfully paid";
+//         return "Successfully paid";
     }
     
     @RequestMapping(path = "/GetStartdate", method = RequestMethod.POST)

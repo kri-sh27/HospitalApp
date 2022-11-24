@@ -47,7 +47,9 @@ export class AdddoctorComponent implements OnInit {
       //error
       console.log(error);
       // alert("something went wrong");
-      Swal.fire('Username already present try with another username', 'error');
+      let m:string=String(error.status)
+
+      Swal.fire('Username already present try with another username, Status Code: '+m, 'error');
 
     }
     )

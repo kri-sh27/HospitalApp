@@ -48,6 +48,8 @@ export class SignupComponent implements OnInit {
       (error) => {
         //error
         console.log(error);
+        let m:string=String(error.status)
+
         // alert("something went wrong");
         Swal.fire('Username already present try with another username', 'error');
 
