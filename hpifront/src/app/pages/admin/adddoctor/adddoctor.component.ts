@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -23,7 +24,7 @@ export class AdddoctorComponent implements OnInit {
     email: '',
     phone: '',
   }
-  constructor(private us: UserService) { }
+  constructor(private us: UserService,private router:Router) { }
 
   ngOnInit(): void {
     
@@ -42,6 +43,8 @@ export class AdddoctorComponent implements OnInit {
       console.log(data);
     
       Swal.fire('Doctor Registered Successfully', 'success');
+      this.router.navigate(['/admin']);
+      
     },
      (error) => {
       //error

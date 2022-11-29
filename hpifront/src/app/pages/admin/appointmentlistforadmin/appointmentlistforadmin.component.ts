@@ -12,6 +12,9 @@ export class AppointmentlistforadminComponent implements OnInit {
 
   constructor(private ap: AppointmentlistforadminService,private profile:ProfileService) { }
   appointmentlist: any;
+
+  page:any=1;
+  total:any;
   ngOnInit(): void {
     this.getAllAppointmentForAdmin();
   }
@@ -40,6 +43,7 @@ export class AppointmentlistforadminComponent implements OnInit {
     this.ap.getAllAppointmentForAdmin().subscribe((res) => {
       console.log(res);
       this.appointmentlist = res;
+      this.total=this.appointmentlist.length
     })
 
   }

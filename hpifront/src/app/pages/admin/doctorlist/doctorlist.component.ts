@@ -7,6 +7,12 @@ import { DoctorService } from 'src/app/services/doctor.service';
   styleUrls: ['./doctorlist.component.css']
 })
 export class DoctorlistComponent implements OnInit {
+ 
+
+  // totalRecords:Number | undefined;
+  page:any=1;
+  total:any;
+
 
   constructor(private ds: DoctorService) { }
   doctorlist: any[] = []
@@ -17,9 +23,11 @@ export class DoctorlistComponent implements OnInit {
     this.ds.getAllDoctors()
       .subscribe(res => {
         this.doctorlist = res;
+        this.total=this.doctorlist.length
 
         console.log(res);
         console.log(this.doctorlist)
+        console.log(this.total)
       })
   }
 

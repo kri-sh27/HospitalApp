@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { AddprescriptionService } from 'src/app/services/addprescription/addprescription.service';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { AppointmentlistService } from 'src/app/services/appointmentlist.service';
@@ -15,7 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class AddprescriptionComponent implements OnInit {
 
-  constructor(private addprescription: AddprescriptionService, private appointmentservice: AppointmentService,private getbyid:GetappointmentbyidService) { }
+  constructor(private addprescription: AddprescriptionService, private appointmentservice: AppointmentService,private getbyid:GetappointmentbyidService,private router:Router) { }
   
   addprescriptionandfees = {
     "id": this.appointmentservice.getAppointmentId(),
@@ -42,6 +43,13 @@ getappointmentbyid(id:any){
     this.appointment=data;
     console.log(this.appointment);
     console.log(data)
+    this.addprescriptionandfees.prescription=this.appointment.prescription;
+
+    this.addprescriptionandfees.note=this.appointment.note;
+
+    this.addprescriptionandfees.charges=this.appointment.charges;
+
+    console.log(this.addprescriptionandfees);
   });
 }
 
@@ -66,6 +74,8 @@ getappointmentbyid(id:any){
         console.log(data);
         // alert("sucess");
         Swal.fire('presciption added Successfully', 'success');
+        this.router.navigate(['/appointmentlist']);
+
       },
       (error) => {
         //error

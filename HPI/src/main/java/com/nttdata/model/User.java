@@ -40,7 +40,6 @@ public class User implements UserDetails  {
 	private String username;
 
 	private String password;
-
 	private String fullName;
 	private String email;
 	private String phone;

@@ -29,7 +29,7 @@
               </div>
 
               <div class="form-group">
-                <label style="margin-top: 10px;" for="branch">Doctor name</label>
+                <label style="margin-top: 10px;" for="branch">Doctor Name</label>
                 <select [(ngModel)]="appointment.nameOfDoctor" (change)="getspeciality()" id="branch" name="branch"
                   ngModel class="form-control">
                   <option *ngFor="let d of list" [value]="d.fullName">
@@ -69,7 +69,7 @@
                   </div>
                 </div> -->
               <div class="form-group">
-                <label for="branch">Start time</label>
+                <label for="branch">Start Time</label>
                 <select [(ngModel)]="appointment.appointmentStartTime" (change)="getendtime()" id="branch"
                   name="starttime" ngModel class="form-control">
                   <option *ngFor="let t of starttime; index as i;" [value]=t>
@@ -93,7 +93,7 @@
                   </div> 
                 </div> -->
               <div class="form-group">
-                <label for="branch">End time</label>
+                <label for="branch">End Time</label>
                 <input type="text" #appointmentEndTime="ngModel" [(ngModel)]="appointment.appointmentEndTime"
                   name="appointmentEndTime" class="form-control" id="exampleInputPassword1" required>
                 <div class="alert alert-danger" role="alert"
@@ -103,7 +103,7 @@
               </div>
 
               <div class="form-group">
-                <label for="name">health issue</label>
+                <label for="name">Health Issue</label>
                 <textarea type="textarea" #healthIssue="ngModel" 
                   [(ngModel)]="appointment.healthIssue" ngModel name="healthIssue" class="form-control" id="healthIssue"
                   aria-describedby="emailHelp" placeholder="Enter health issue" required></textarea>

@@ -51,6 +51,7 @@
                   DOB is a required field
                 </div>
               </div>
+
               <div class="form-group">
                 <label for="exampleInputEmail1">Marital Status</label>
                 <ul>
@@ -131,7 +132,7 @@
                 </div>
               </div>
               <div class="container text-center" style="margin-top: 10px;">
-                <button [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Register</button>
+                <button  [disabled]="!myForm.form.valid" type="submit" class="btn btn-primary">Register</button>
                 <button style="margin-left: 20px;" type="button" class="btn btn-primary"
                   (click)="myForm.resetForm()">clear</button>
               </div>

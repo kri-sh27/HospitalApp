@@ -12,7 +12,8 @@ export class AppointmentlistComponent implements OnInit {
 
   constructor(private appointmentservice: AppointmentlistService, private ap: AppointmentService) { }
   appointlist: any;
- 
+  page:any=1;
+  total:any;
   ngOnInit(): void {
     this.getAllAppointments();
   
@@ -22,6 +23,7 @@ export class AppointmentlistComponent implements OnInit {
   getAllAppointments() {
     this.appointmentservice.getAllAppointments().subscribe((aptlist) => {
       this.appointlist = aptlist.body;
+      this.total=this.appointlist.length
       console.log((this.appointlist));
     })
   }

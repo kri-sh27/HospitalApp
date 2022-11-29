@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 // import { NgForm } from '@angular/forms';
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   gender: any;
   // maritalstatus:any;
 
-  constructor(private userService: UserService,) { }
+  constructor(private userService: UserService, private router:Router) { }
   public user = {
 
     username: '',
@@ -25,6 +26,7 @@ export class SignupComponent implements OnInit {
     gender: '',
     address: '',
     email: '',
+    age:'',
     phone: '',
   }
 
@@ -44,6 +46,7 @@ export class SignupComponent implements OnInit {
         console.log(data);
         // alert("sucess");
         Swal.fire('User Registered Successfully', 'User ID is' + data.id, 'success');
+        this.router.navigate(['/login']);
       },
       (error) => {
         //error

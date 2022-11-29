@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
     status: false
   }
   profilelist: any;
+  page:any=1;
+  total:any;
   ngOnInit(): void {
     this.findByPatientName();
   }
@@ -44,6 +46,8 @@ export class ProfileComponent implements OnInit {
     this.profile.findByPatientName().subscribe((data) => {
       console.log(data);
       this.profilelist = data;
+      this.total=this.profilelist.length
+
       // this.profilelist=data.body;
       console.log(this.profilelist);
 

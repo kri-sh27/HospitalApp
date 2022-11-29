@@ -27,7 +27,7 @@ import { AppointmentComponent } from './pages/user/appointment/appointment.compo
 import { AddprescriptionComponent } from './pages/doctor/addprescription/addprescription.component';
 import { AppointmentlistforadminComponent } from './pages/admin/appointmentlistforadmin/appointmentlistforadmin.component';
 import { ProfileComponent } from './pages/user/profile/profile.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -62,7 +62,7 @@ import { ProfileComponent } from './pages/user/profile/profile.component';
     HttpClientModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,NgxPaginationModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
