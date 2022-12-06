@@ -44,7 +44,7 @@
                 <td>{{apt.healthIssue}}</td>
                 <td>{{apt.prescription}}</td>
                 <td>{{apt.note}}</td>
-                <td>{{apt.charges}}</td>
+                <td>{{apt.charges | currency:'INR'}}</td>
                 <!-- <td>{{apt.status}}</td> -->
                 <td><button class="btn btn-primary" [routerLink]="'/addprescription'"
                     (click)="setAppointmentId(apt.id)">Add prescription and fees</button></td>

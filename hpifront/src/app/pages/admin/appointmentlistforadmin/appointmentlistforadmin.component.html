@@ -38,7 +38,7 @@
             <td>{{al.healthIssue}}</td>
             <td>{{al.prescription}}</td>
             <td>{{al.note}}</td>
-            <td>{{al.charges}}</td>
+            <td>{{al.charges | currency:'INR'}}</td>
             <td *ngIf="al.status==false">Treatment in progress</td>
             <td *ngIf="al.status==true">Payment Done / Discharged</td>
             <td ><button *ngIf="al.status==false" [disabled]="(al.charges==0)"  class="btn btn-primary"
