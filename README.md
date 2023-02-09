@@ -6,6 +6,9 @@
     <img src="screenshot/home2.png" width="80%"/>
     <img src="screenshot/home3.png" width="80%"/>
     <h1 [align]="center">Patien Registration Page Page</h1><hr>
+    <img src="screenshot/registration1.png" width="80%"/><br>
+    <img src="screenshot/registration2.png" width="80%"/><br>
+    <img src="screenshot/registration3.png" width="80%"/><br>
     <h1 [align]="center">Patient Login Page</h1>
     <img src="screenshot/login.png" width="80%"/>
     <h1 [align]="center">Book Appointment Page</h1>
@@ -14,8 +17,8 @@
     <h1 [align]="center">Patient Dashboard</h1>
     <img src="screenshot/udash.png" width="80%"/><br>
     <h1 [align]="center">Patient Dashboard appointment Deatils</h1>
-    <img src="screenshot/patientdashAppDetails.png" width="80%"/><br>
-    <img src="screenshot/patientDashAppDEtails.png" width="80%"/><br>
+    <img src="screenshot/patientdashAppDetails.png" width="80%"/>
+    <img src="screenshot/patientDashAppDEtails2.png" width="80%"/>
     <h1 [align]="center">Doctor Registration page</h1>
     <img src="screenshot/dregister.png" width="80%"/><br>
     <img src="screenshot/dreg.png" width="80%"/><br>
