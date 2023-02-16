@@ -1,5 +1,4 @@
 # HospitalApp
-<h3>Demo run of The Project - </h3><hr>
 Our hospital patient interface is a web application that allows users to register, log in, and manage appointments, doctors, and patients. We built the backend of the application using Java, and the frontend using Angular, HTML, and CSS. The database we used is PostgreSQL, which stores user, appointment, doctor, and patient information securely.
 
 To ensure the security of the application, we used Spring Security for authentication and authorization purposes. Users can register with a unique username, email ID, name, mobile number, age, and password. After registering, they can log in and select an appointment date, timing, doctor name, and disease. We automatically fetch the doctor's specialty based on the selected doctor name.
@@ -11,6 +10,8 @@ At the end of the patient table, there is a pay bill column with a pay button. T
 We implemented validations throughout the application to ensure that only valid and accurate data is entered. The application validates user input in the registration form, login form, appointment selection, and other sections where applicable.
 
 Overall, our hospital patient interface is a secure and user-friendly web application that allows users to manage appointments, doctors, and patients. We designed the application to be secure, reliable, and intuitive, and we hope that it will provide a valuable service to all who use it.
+
+<h3>Demo run of The Project - </h3><hr>
 <div align="center">
 <h1 [align]="center">Home Page</h1><hr>
     <img src="screenshot/home1.png" width="80%"/>
